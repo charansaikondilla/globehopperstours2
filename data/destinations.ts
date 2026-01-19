@@ -28,6 +28,8 @@ export interface CountryData {
     bestTime?: string;
     currency?: string;
     language?: string;
+    coordinates: [number, number]; // [Longitude, Latitude] for D3 rotation
+    keywords?: string[]; // For search matching (e.g. cities not in packages, common misspellings)
 }
 
 export type DestinationsData = Record<string, CountryData>;
@@ -43,6 +45,8 @@ export const destinationsData: DestinationsData = {
         bestTime: 'March to May, September to November',
         currency: 'Japanese Yen (¥)',
         language: 'Japanese',
+        coordinates: [138.2529, 36.2048],
+        keywords: ['Tokyo', 'Kyoto', 'Osaka', 'Hiroshima', 'Hokkaido', 'Nara', 'Fuji', 'Sapporo'],
         packages: [
             {
                 id: 'tokyo-modern-adventure',
@@ -159,6 +163,8 @@ export const destinationsData: DestinationsData = {
         bestTime: 'November to April',
         currency: 'Philippine Peso (₱)',
         language: 'Filipino & English',
+        coordinates: [121.7740, 12.8797],
+        keywords: ['Manila', 'Boracay', 'Palawan', 'Cebu', 'El Nido', 'Siargao', 'Bohol'],
         packages: [
             {
                 id: 'palawan-el-nido',
@@ -244,6 +250,7 @@ export const destinationsData: DestinationsData = {
         bestTime: 'October to November, March to April',
         currency: 'Nepali Rupee (NPR)',
         language: 'Nepali',
+        coordinates: [84.1240, 28.3949],
         packages: [
             {
                 id: 'everest-base-camp',
@@ -329,6 +336,7 @@ export const destinationsData: DestinationsData = {
         bestTime: 'December to March, July to September',
         currency: 'Sri Lankan Rupee (LKR)',
         language: 'Sinhala & Tamil',
+        coordinates: [80.7718, 7.8731],
         packages: [
             {
                 id: 'cultural-triangle',
@@ -414,6 +422,8 @@ export const destinationsData: DestinationsData = {
         bestTime: 'October to March',
         currency: 'Indian Rupee (₹)',
         language: 'Hindi & English (plus 21 other official languages)',
+        coordinates: [78.9629, 20.5937],
+        keywords: ['Delhi', 'Mumbai', 'Bangalore', 'Goa', 'Agra', 'Jaipur', 'Varanasi', 'Kolkata', 'Chennai', 'Kerala', 'Taj Mahal'],
         packages: [
             {
                 id: 'golden-triangle',
@@ -499,6 +509,7 @@ export const destinationsData: DestinationsData = {
         bestTime: 'April to May, September to October',
         currency: 'Chinese Yuan (¥)',
         language: 'Mandarin Chinese',
+        coordinates: [104.1954, 35.8617],
         packages: [
             {
                 id: 'beijing-xian',
@@ -585,6 +596,8 @@ export const destinationsData: DestinationsData = {
         bestTime: 'November to February',
         currency: 'Thai Baht (฿)',
         language: 'Thai',
+        coordinates: [100.9925, 15.8700],
+        keywords: ['Bangkok', 'Phuket', 'Chiang Mai', 'Pattaya', 'Krabi', 'Phi Phi', 'Koh Samui', 'Patau'], // Added 'Patau' as user example of misspelling/alias
         packages: [
             {
                 id: 'bangkok-temples',
@@ -652,6 +665,7 @@ export const destinationsData: DestinationsData = {
         bestTime: 'February to April, August to October',
         currency: 'Vietnamese Dong (₫)',
         language: 'Vietnamese',
+        coordinates: [108.2772, 14.0583],
         packages: [
             {
                 id: 'hanoi-halong',
@@ -707,6 +721,7 @@ export const destinationsData: DestinationsData = {
         tagline: 'Explore the World!',
         description: 'Discover amazing destinations and create unforgettable memories.',
         heroImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2670&auto=format&fit=crop',
+        coordinates: [0, 0],
         packages: [
             {
                 id: 'city-explorer',
@@ -733,5 +748,339 @@ export const destinationsData: DestinationsData = {
                 price: '$279'
             }
         ]
-    }
+    },
+    'united-arab-emirates': {
+        displayName: 'Dubai',
+        tagline: 'The City of the Future!',
+        description: 'Experience the height of luxury, futuristic architecture, and desert adventures in Dubai.',
+        heroImage: 'https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Burj Khalifa', 'Desert Safari', 'Palm Jumeirah', 'Luxury Shopping', 'Future Museum'],
+        coordinates: [55.2708, 25.2048],
+        keywords: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Emirates', 'United Arab Emirates'],
+        packages: [
+            {
+                id: 'dubai-luxury',
+                title: 'Dubai Luxury Escape',
+                location: 'Dubai • Desert',
+                image: 'https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=2574&auto=format&fit=crop',
+                features: ['Burj Khalifa View', 'Yacht Tour', 'Desert Glamping'],
+                price: '$899',
+                duration: '5 Days / 4 Nights'
+            }
+        ]
+    },
+    'south-korea': {
+        displayName: 'South Korea',
+        tagline: 'Land of Morning Calm',
+        description: 'Discover the dynamic blend of ancient palaces, modern pop culture, and delicious cuisine.',
+        heroImage: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Seoul Palaces', 'Street Food', 'Jeju Island', 'K-Pop Culture', 'Shopping'],
+        coordinates: [127.7669, 35.9078],
+        packages: [
+            {
+                id: 'seoul-adventure',
+                title: 'Seoul Adventure & Culture',
+                location: 'Seoul • Busan',
+                image: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?q=80&w=2574&auto=format&fit=crop',
+                features: ['Gyeongbokgung Palace', 'Myeongdong Shopping', 'Hanok Village'],
+                price: '$699',
+                duration: '6 Days / 5 Nights'
+            }
+        ]
+    },
+    'europe': {
+        displayName: 'Europe',
+        tagline: 'The Old World Awaits',
+        description: 'Journey through the history, art, and romance of Europe\'s most iconic cities.',
+        heroImage: 'https://images.unsplash.com/photo-1499856871940-a09627c6d7db?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Eiffel Tower', 'Colosseum', 'Swiss Alps', 'Amsterdam Canals', 'Santorini'],
+        coordinates: [10.4515, 51.1657],
+        packages: [
+            {
+                id: 'europe-hop',
+                title: 'Grand Europe Hop',
+                location: 'Paris • Rome • Venice',
+                image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2673&auto=format&fit=crop',
+                features: ['Eiffel Tower', 'Colosseum Tour', 'Gondola Ride'],
+                price: '$1,299',
+                duration: '10 Days / 9 Nights'
+            }
+        ]
+    },
+    'united-kingdom': {
+        displayName: 'United Kingdom',
+        tagline: 'History, Culture & Crown Jewels',
+        description: 'Explore the historic streets of London, the rugged highlands of Scotland, and the charming countryside of England.',
+        heroImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Big Ben', 'Tower of London', 'Scottish Highlands', 'Stonehenge', 'Edinburgh Castle'],
+        bestTime: 'May to September',
+        currency: 'British Pound (£)',
+        language: 'English',
+        coordinates: [-3.4359, 55.3781],
+        keywords: ['London', 'England', 'Scotland', 'Wales', 'Edinburgh', 'Manchester', 'UK', 'Britain'],
+        packages: [
+            {
+                id: 'london-royal',
+                title: 'Royal London Experience',
+                location: 'London • Windsor',
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
+                features: ['Buckingham Palace', 'Tower Bridge', 'Windsor Castle'],
+                price: '$699',
+                duration: '5 Days / 4 Nights'
+            }
+        ]
+    },
+    'france': {
+        displayName: 'France',
+        tagline: 'Romance, Art & Gastronomy',
+        description: 'Discover the romance of Paris, the lavender fields of Provence, and the glamour of the French Riviera.',
+        heroImage: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2673&auto=format&fit=crop',
+        highlights: ['Eiffel Tower', 'Louvre Museum', 'Versailles', 'Riviera Beaches', 'Wine Regions'],
+        bestTime: 'April to June, September to November',
+        currency: 'Euro (€)',
+        language: 'French',
+        coordinates: [2.2137, 46.2276],
+        keywords: ['Paris', 'Nice', 'Lyon', 'Marseille', 'Riviera', 'Eiffel Tower', 'Louvre'],
+        packages: [
+            {
+                id: 'paris-romance',
+                title: 'Parisian Romance',
+                location: 'Paris',
+                image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2673&auto=format&fit=crop',
+                features: ['Seine Cruise', 'Eiffel Tower Dinner', 'Louvre Tour'],
+                price: '$799',
+                duration: '4 Days / 3 Nights'
+            }
+        ]
+    },
+    'italy': {
+        displayName: 'Italy',
+        tagline: 'La Dolce Vita!',
+        description: 'Immerse yourself in the art, history, and culinary masterpieces of Italy.',
+        heroImage: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2666&auto=format&fit=crop',
+        highlights: ['Colosseum', 'Venice Canals', 'Florence Art', 'Amalfi Coast', 'Vatican City'],
+        bestTime: 'April to June, September to October',
+        currency: 'Euro (€)',
+        language: 'Italian',
+        coordinates: [12.5674, 41.8719],
+        keywords: ['Rome', 'Venice', 'Florence', 'Milan', 'Naples', 'Amalfi', 'Tuscany'],
+        packages: [
+            {
+                id: 'italian-classics',
+                title: 'Italian Classics',
+                location: 'Rome • Florence • Venice',
+                image: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2666&auto=format&fit=crop',
+                features: ['Colosseum', 'Uffizi Gallery', 'Gondola Ride'],
+                price: '$999',
+                duration: '7 Days / 6 Nights'
+            }
+        ]
+    },
+    'united-states': {
+        displayName: 'United States',
+        tagline: 'The Land of Opportunity',
+        description: 'From bustling metropolises to stunning national parks, experience the diversity of the USA.',
+        heroImage: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2699&auto=format&fit=crop',
+        highlights: ['Times Square', 'Grand Canyon', 'Hollywood', 'Statue of Liberty', 'Las Vegas Strip'],
+        bestTime: 'All Year Round',
+        currency: 'US Dollar ($)',
+        language: 'English',
+        coordinates: [-95.7129, 37.0902],
+        keywords: ['USA', 'New York', 'NYC', 'California', 'Los Angeles', 'San Francisco', 'Las Vegas', 'Florida', 'Hawaii'],
+        packages: [
+            {
+                id: 'nyc-lights',
+                title: 'New York City Lights',
+                location: 'New York City',
+                image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2670&auto=format&fit=crop',
+                features: ['Broadway Show', 'Empire State Building', 'Central Park'],
+                price: '$899',
+                duration: '5 Days / 4 Nights'
+            }
+        ]
+    },
+    'australia': {
+        displayName: 'Australia',
+        tagline: 'Land Down Under',
+        description: 'Discover the Great Barrier Reef, iconic Opera House, and vast outback adventures.',
+        heroImage: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Opera House', 'Great Barrier Reef', 'Uluru', 'Bondi Beach', 'Kangaroos'],
+        bestTime: 'September to November, March to May',
+        currency: 'Australian Dollar (A$)',
+        language: 'English',
+        coordinates: [133.7751, -25.2744],
+        keywords: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Great Barrier Reef', 'Outback'],
+        packages: [
+            {
+                id: 'sydney-reef',
+                title: 'Sydney & The Reef',
+                location: 'Sydney • Cairns',
+                image: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=2670&auto=format&fit=crop',
+                features: ['Opera House Tour', 'Reef Snorkeling', 'Harbour Cruise'],
+                price: '$1,199',
+                duration: '8 Days / 7 Nights'
+            }
+        ]
+    },
+    'maldives': {
+        displayName: 'Maldives',
+        tagline: 'Sunny Side of Life',
+        description: 'Escape to a tropical paradise of crystal-clear waters, overwater bungalows, and white sand beaches.',
+        heroImage: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop',
+        highlights: ['Overwater Villas', 'Coral Reefs', 'Underwater Dining', 'Seaplane Rides', 'Luxury Spas'],
+        bestTime: 'November to April',
+        currency: 'Maldivian Rufiyaa (MVR)',
+        language: 'Dhivehi & English',
+        coordinates: [73.2207, 3.2028],
+        keywords: ['Male', 'Maafushi', 'Honeymoon', 'Island', 'Beach', 'Resort'],
+        packages: [
+            {
+                id: 'maldives-honeymoon',
+                title: 'Luxury Honeymoon Escape',
+                location: 'Private Island Resort',
+                image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop',
+                features: ['Overwater Villa', 'Candlelit Dinner', 'Couple Spa'],
+                price: '$2,499',
+                duration: '6 Days / 5 Nights'
+            }
+        ]
+    },
+    'fiji': {
+        displayName: 'Fiji',
+        tagline: 'Where Happiness Finds You',
+        description: 'Experience the warm hospitality, vibrant coral reefs, and untouched beauty of the South Pacific.',
+        heroImage: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2688&auto=format&fit=crop',
+        highlights: ['Mamanuca Islands', 'Coral Coast', 'Fijian Villages', 'Scuba Diving', 'Kava Ceremony'],
+        bestTime: 'May to October',
+        currency: 'Fijian Dollar (FJD)',
+        language: 'Fijian & English',
+        coordinates: [178.0650, -17.7134],
+        keywords: ['Suva', 'Nadi', 'Denarau', 'Island', 'Pacific'],
+        packages: [
+            {
+                id: 'fiji-island-hop',
+                title: 'Fiji Island Hopping',
+                location: 'Nadi • Mamanuca Islands',
+                image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2688&auto=format&fit=crop',
+                features: ['Island Resort', 'Snorkeling', 'Village Visit'],
+                price: '$1,299',
+                duration: '7 Days / 6 Nights'
+            }
+        ]
+    },
+    'indonesia': {
+        displayName: 'Indonesia',
+        tagline: 'Wonderful Indonesia',
+        description: 'Explore an archipelago of thousands of islands, from the beaches of Bali to the jungles of Sumatra.',
+        heroImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2638&auto=format&fit=crop',
+        highlights: ['Bali Beaches', 'Borobudur Temple', 'Komodo Dragons', 'Raja Ampat', 'Ubud Rice Terraces'],
+        bestTime: 'May to September',
+        currency: 'Indonesian Rupiah (IDR)',
+        language: 'Indonesian',
+        coordinates: [113.9213, -0.7893],
+        keywords: ['Bali', 'Jakarta', 'Ubud', 'Kuta', 'Seminyak', 'Komodo', 'Java'],
+        packages: [
+            {
+                id: 'bali-bliss',
+                title: 'Bali Bliss & Culture',
+                location: 'Ubud • Seminyak • Uluwatu',
+                image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2638&auto=format&fit=crop',
+                features: ['Rice Terrace Swing', 'Monkey Forest', 'Beach Club', 'Temple Tour'],
+                price: '$599',
+                duration: '6 Days / 5 Nights'
+            }
+        ]
+    },
+    'switzerland': {
+        displayName: 'Switzerland',
+        tagline: 'Playground of Europe',
+        description: 'Experience the breathtaking Alps, pristine lakes, and charming villages of Switzerland.',
+        heroImage: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Swiss Alps', 'Matterhorn', 'Lake Geneva', 'Chocolate & Cheese', 'Scenic Trains'],
+        bestTime: 'June to September, December to March (Skiing)',
+        currency: 'Swiss Franc (CHF)',
+        language: 'German, French, Italian',
+        coordinates: [8.2275, 46.8182],
+        keywords: ['Zurich', 'Geneva', 'Interlaken', 'Zermatt', 'Lucerne', 'Alps', 'Bern'],
+        packages: [
+            {
+                id: 'swiss-alps',
+                title: 'Grand Swiss Alps',
+                location: 'Zurich • Interlaken • Lucerne',
+                image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2670&auto=format&fit=crop',
+                features: ['Jungfraujoch', 'Lake Cruise', 'Panoramic Train'],
+                price: '$1,499',
+                duration: '6 Days / 5 Nights'
+            }
+        ]
+    },
+    'singapore': {
+        displayName: 'Singapore',
+        tagline: 'Passion Made Possible',
+        description: 'A futuristic city-state where nature meets innovation, street food meets fine dining.',
+        heroImage: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop',
+        highlights: ['Marina Bay Sands', 'Gardens by the Bay', 'Sentosa Island', 'Chinatown', 'Orchard Road'],
+        bestTime: 'February to April',
+        currency: 'Singapore Dollar (S$)',
+        language: 'English, Malay, Mandarin, Tamil',
+        coordinates: [103.8198, 1.3521],
+        keywords: ['Singapore City', 'Sentosa', 'Marina Bay', 'Changi'],
+        packages: [
+            {
+                id: 'singapore-city',
+                title: 'Singapore City Break',
+                location: 'Marina Bay • Sentosa',
+                image: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop',
+                features: ['Gardens by the Bay', 'Universal Studios', 'Night Safari'],
+                price: '$699',
+                duration: '4 Days / 3 Nights'
+            }
+        ]
+    },
+    'spain': {
+        displayName: 'Spain',
+        tagline: 'Passion, Fiesta & Siesta',
+        description: 'Experience the vibrant culture, sun-drenched beaches, and historic architecture of Spain.',
+        heroImage: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2670&auto=format&fit=crop',
+        highlights: ['Sagrada Familia', 'Alhambra', 'Ibiza Beaches', 'Tapas', 'Flamenco'],
+        bestTime: 'April to June, September to October',
+        currency: 'Euro (€)',
+        language: 'Spanish',
+        coordinates: [-3.7492, 40.4637],
+        keywords: ['Madrid', 'Barcelona', 'Seville', 'Valencia', 'Ibiza', 'Granada', 'Mallorca'],
+        packages: [
+            {
+                id: 'spanish-fiesta',
+                title: 'Spanish Fiesta',
+                location: 'Madrid • Barcelona • Seville',
+                image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2670&auto=format&fit=crop',
+                features: ['Sagrada Familia Tour', 'Flamenco Show', 'Tapas Tasting'],
+                price: '$1,099',
+                duration: '8 Days / 7 Nights'
+            }
+        ]
+    },
+    'canada': {
+        displayName: 'Canada',
+        tagline: 'True North Strong and Free',
+        description: 'Explore the majestic Rockies, vibrant cities, and diverse wildlife of Canada.',
+        heroImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2611&auto=format&fit=crop',
+        highlights: ['Niagara Falls', 'Banff National Park', 'CN Tower', 'Whistler Skiing', 'Northern Lights'],
+        bestTime: 'June to August, December to March (Skiing)',
+        currency: 'Canadian Dollar (C$)',
+        language: 'English & French',
+        coordinates: [-106.3468, 56.1304],
+        keywords: ['Toronto', 'Vancouver', 'Montreal', 'Banff', 'Niagara', 'Quebec', 'Ottawa'],
+        packages: [
+            {
+                id: 'canadian-rockies',
+                title: 'Canadian Rockies Adventure',
+                location: 'Vancouver • Banff • Jasper',
+                image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2611&auto=format&fit=crop',
+                features: ['Rocky Mountaineer', 'Lake Louise', 'Whale Watching'],
+                price: '$1,599',
+                duration: '9 Days / 8 Nights'
+            }
+        ]
+    },
 };

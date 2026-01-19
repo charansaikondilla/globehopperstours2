@@ -11,13 +11,14 @@ interface PointOfInterest {
 
 interface EarthProps {
     searchQuery: string | null;
+    targetCoordinates?: [number, number] | null; // Added for precise targeting
     onCountryNotFound: () => void;
     onCountryFound?: (countryName: string) => void;
     onPinClick: (destination: PointOfInterest) => void;
     isPaused: boolean;
 }
 
-const Earth: React.FC<EarthProps> = ({ searchQuery, onCountryNotFound, onCountryFound, onPinClick, isPaused }) => {
+const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountryNotFound, onCountryFound, onPinClick, isPaused }) => {
     const svgRef = useRef<SVGSVGElement>(null);
     const timerRef = useRef<any>(null);
     const projectionRef = useRef<any>(null);
@@ -341,10 +342,38 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, onCountryNotFound, onCountry
     }, [isPaused]);
 
     useEffect(() => {
-        if (!searchQuery || !countriesRef.current.length) return;
+        if (!searchQuery) return;
 
-        // Normalize search query
-        let normalizedQuery = searchQuery.trim().toLowerCase();
+        // 1. Priority: Explicit Coordinates (from Smart Search)
+        if (targetCoordinates) {
+            setActivePins([{ name: searchQuery, coordinates: targetCoordinates }]);
+
+            // Trigger rotation
+            if (timerRef.current) timerRef.current.stop();
+            rotationPausedByUserRef.current = true;
+            const targetRotation = [-targetCoordinates[0], -targetCoordinates[1]];
+
+            // Animate
+            d3.transition().duration(1500)
+                .tween('rotate', () => {
+                    const r = d3.interpolate(projectionRef.current.rotate(), targetRotation);
+                    return (t: number) => {
+                        projectionRef.current.rotate(r(t));
+                        if (svgRef.current) {
+                            d3.select(svgRef.current).selectAll('path.land').attr('d', d3.geoPath().projection(projectionRef.current));
+                            d3.select(svgRef.current).selectAll('.pin-group').attr('transform', (d: any) => `translate(${projectionRef.current(d.coordinates)})`);
+                        }
+                    };
+                })
+                .on('end', () => {
+                    if (onCountryFound) onCountryFound(searchQuery);
+                });
+            return;
+        }
+
+        // 2. Fallback: Name matching with TopoJSON
+        if (!countriesRef.current.length) return;
+        const normalizedQuery = searchQuery.trim().toLowerCase();
 
         const country = countriesRef.current.find(
             c => c.properties.name.toLowerCase() === normalizedQuery
@@ -368,16 +397,13 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, onCountryNotFound, onCountry
                     };
                 })
                 .on('end', () => {
-                    // Notify parent that country was found and rotation completed
-                    if (onCountryFound) {
-                        onCountryFound(country.properties.name);
-                    }
+                    if (onCountryFound) onCountryFound(country.properties.name);
                 });
-
         } else {
             onCountryNotFound();
         }
-    }, [searchQuery, onCountryNotFound]);
+    }, [searchQuery, targetCoordinates, onCountryNotFound]);
+
 
 
     return <svg ref={svgRef} className="cursor-move" />;
