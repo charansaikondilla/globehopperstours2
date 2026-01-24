@@ -54,7 +54,7 @@ const Visa: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>Visa Services - Globalhopperstours | Hassle-Free Visa Processing</title>
+                <title>Visa Services - GlobeHoppersTours | Hassle-Free Visa Processing</title>
                 <meta name="description" content="Get expert visa assistance for countries worldwide. Fast processing, document guidance, and high approval rates. Let us handle your visa application." />
             </Helmet>
 
@@ -104,7 +104,6 @@ const Visa: React.FC = () => {
                                     <p className="text-white font-bold">{service.processingTime}</p>
                                 </div>
                                 <div className="text-center mb-6">
-                                    <p className="text-3xl font-black text-blue-500">{service.price}</p>
                                     <p className="text-slate-400 text-sm">Service Fee</p>
                                 </div>
                                 <div className="mb-8">

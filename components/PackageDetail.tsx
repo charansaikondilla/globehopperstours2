@@ -10,8 +10,8 @@ const PackageDetail: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
 
-    // Get country data
-    const countryData: CountryData | undefined = destinationsData[country || ''];
+    // Get country data with fallback to default for generic pages
+    const countryData: CountryData | undefined = destinationsData[country || ''] || destinationsData['default'];
     const packageData: TravelPackage | undefined = countryData?.packages.find(pkg => pkg.id === packageId);
 
     useEffect(() => {
@@ -96,11 +96,7 @@ const PackageDetail: React.FC = () => {
                 {/* Content */}
                 <div className={`relative z-10 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
 
-                    {/* Premium Navbar */}
-                    <div className="fixed top-0 left-0 right-0 z-50">
-                        <Navbar />
-                    </div>
-                    <div className="h-20" />
+                    {/* Premium Navbar - Handled globally in App.tsx */}
 
                     {/* Hero Section with Image Gallery */}
                     <div className="relative h-[65vh] overflow-hidden">
@@ -313,13 +309,73 @@ const PackageDetail: React.FC = () => {
                                     </div>
 
                                     {/* Booking Form */}
-                                    <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Booking functionality coming soon!'); }}>
+                                    <form className="space-y-6" onSubmit={(e) => {
+                                        e.preventDefault();
+                                        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwIZTBqG_t-m1prFDc4FyeslOFfmn9g2IXAkH239FpzwY1-MkDDFNRAgReObRvL6HDldw/exec';
+
+                                        const form = e.target as HTMLFormElement;
+                                        const formData = new FormData(form);
+                                        formData.append('type', 'booking');
+                                        formData.append('packageTitle', packageData.title);
+                                        formData.append('country', countryData.displayName || '');
+
+                                        const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                                        const originalText = btn.innerHTML;
+                                        btn.disabled = true;
+                                        btn.innerHTML = 'Booking...';
+
+                                        fetch(SCRIPT_URL, {
+                                            method: 'POST',
+                                            body: formData,
+                                            mode: 'no-cors'
+                                        }).then(() => {
+                                            alert('Successful and team will contact you shortly!');
+                                            form.reset();
+                                            btn.innerHTML = 'Booked Successfully';
+                                            setTimeout(() => {
+                                                btn.disabled = false;
+                                                btn.innerHTML = originalText;
+                                            }, 3000);
+                                        }).catch(err => {
+                                            console.error('Error booking:', err);
+                                            alert('Failed to send booking request. Please try again.');
+                                            btn.disabled = false;
+                                            btn.innerHTML = originalText;
+                                        });
+                                    }}>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-2">Full Name</label>
+                                            <div className="relative">
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    placeholder="John Doe"
+                                                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-sm font-bold"
+                                                    required
+                                                />
+                                                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">
+                                                    👤
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-2">Mobile Number</label>
+                                            <input
+                                                type="tel"
+                                                name="mobile"
+                                                placeholder="+1 234 567 890"
+                                                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-sm font-bold"
+                                                required
+                                            />
+                                        </div>
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-2">Preferred Expedition Date</label>
                                             <input
                                                 type="date"
+                                                name="date"
                                                 className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-sm font-bold"
                                                 min={new Date().toISOString().split('T')[0]}
+                                                required
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -327,18 +383,19 @@ const PackageDetail: React.FC = () => {
                                             <div className="relative">
                                                 <input
                                                     type="number"
+                                                    name="travelers"
                                                     min="1"
                                                     defaultValue="2"
                                                     className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-sm font-bold"
                                                 />
                                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">
-                                                    👤
+                                                    👥
                                                 </div>
                                             </div>
                                         </div>
                                         <button
                                             type="submit"
-                                            className="group relative w-full py-5 bg-white text-blue-700 font-black rounded-2xl hover:scale-[1.03] active:scale-95 transition-all duration-500 shadow-xl hover:shadow-white/10 text-lg uppercase tracking-widest"
+                                            className="group relative w-full py-5 bg-white text-blue-700 font-black rounded-2xl hover:scale-[1.03] active:scale-95 transition-all duration-500 shadow-xl hover:shadow-white/10 text-lg uppercase tracking-widest disabled:opacity-70 disabled:cursor-not-allowed"
                                         >
                                             <span className="relative z-10 flex items-center justify-center">
                                                 Commence Booking
@@ -347,17 +404,14 @@ const PackageDetail: React.FC = () => {
                                                 </svg>
                                             </span>
                                         </button>
-                                        <button
-                                            type="button"
-                                            className="w-full py-4 bg-white/5 text-white font-black rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 text-sm uppercase tracking-widest"
-                                        >
-                                            Add to Collection ♡
-                                        </button>
                                     </form>
 
                                     {/* Contact advisor */}
                                     <div className="pt-6 border-t border-white/5 text-center">
-                                        <button className="text-blue-400 hover:text-white font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300">
+                                        <button
+                                            onClick={() => navigate('/contact')}
+                                            className="text-blue-400 hover:text-white font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300"
+                                        >
                                             Consult an Expedition Advisor →
                                         </button>
                                     </div>

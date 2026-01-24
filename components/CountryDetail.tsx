@@ -89,10 +89,7 @@ const CountryDetail: React.FC = () => {
                 {/* Content Container */}
                 <div className="relative z-10 min-h-screen flex flex-col font-sans text-white">
 
-                    {/* Premium Navbar */}
-                    <div className="fixed top-0 left-0 right-0 z-50">
-                        <Navbar />
-                    </div>
+                    {/* Premium Navbar - Handled globally in App.tsx */}
                     <div className="h-24 sm:h-28" />
 
                     {/* Hero Section */}

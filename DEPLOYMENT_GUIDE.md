@@ -2,7 +2,7 @@
 
 ## ✅ Successfully Pushed to GitHub!
 
-**Repository URL**: https://github.com/charansaikondilla/travelagency
+**Repository URL**: https://github.com/charansaikondilla/globehoppperstours
 
 ---
 
@@ -11,7 +11,7 @@
 To deploy your site, follow these steps:
 
 ### Step 1: Go to Repository Settings
-1. Visit: https://github.com/charansaikondilla/travelagency
+1. Visit: https://github.com/charansaikondilla/globehoppperstours
 2. Click **"Settings"** tab at the top
 3. Scroll down to **"Pages"** in the left sidebar (under "Code and automation")
 
@@ -29,7 +29,7 @@ To deploy your site, follow these steps:
 ### Step 4: Access Your Live Site
 Once deployed, your site will be available at:
 
-**🌐 LIVE URL**: https://charansaikondilla.github.io/travelagency/
+**🌐 LIVE URL**: https://charansaikondilla.github.io/globehoppperstours/
 
 ---
 
@@ -37,14 +37,14 @@ Once deployed, your site will be available at:
 
 ### 1. Vite Configuration (`vite.config.ts`)
 ```typescript
-base: '/travelagency/'  // Set base path for GitHub Pages
+base: '/globehoppperstours/'  // Set base path for GitHub Pages
 ```
 
 ### 2. Package.json Updates
 ```json
 {
   "version": "1.0.0",
-  "homepage": "https://charansaikondilla.github.io/travelagency"
+  "homepage": "https://charansaikondilla.github.io/globehoppperstours"
 }
 ```
 
@@ -108,21 +108,21 @@ Once deployed, users can:
 After deployment, test these routes:
 
 ### Main Pages:
-- Home: https://charansaikondilla.github.io/travelagency/
-- Japan: https://charansaikondilla.github.io/travelagency/japan
-- Philippines: https://charansaikondilla.github.io/travelagency/philippines
-- Nepal: https://charansaikondilla.github.io/travelagency/nepal
-- Sri Lanka: https://charansaikondilla.github.io/travelagency/sri-lanka
-- India: https://charansaikondilla.github.io/travelagency/india
-- China: https://charansaikondilla.github.io/travelagency/china
+- Home: https://charansaikondilla.github.io/globehoppperstours/
+- Japan: https://charansaikondilla.github.io/globehoppperstours/japan
+- Philippines: https://charansaikondilla.github.io/globehoppperstours/philippines
+- Nepal: https://charansaikondilla.github.io/globehoppperstours/nepal
+- Sri Lanka: https://charansaikondilla.github.io/globehoppperstours/sri-lanka
+- India: https://charansaikondilla.github.io/globehoppperstours/india
+- China: https://charansaikondilla.github.io/globehoppperstours/china
 
 ### Package Examples:
-- https://charansaikondilla.github.io/travelagency/japan/tokyo-modern-adventure
-- https://charansaikondilla.github.io/travelagency/philippines/palawan-el-nido
-- https://charansaikondilla.github.io/travelagency/nepal/everest-base-camp
+- https://charansaikondilla.github.io/globehoppperstours/japan/tokyo-modern-adventure
+- https://charansaikondilla.github.io/globehoppperstours/philippines/palawan-el-nido
+- https://charansaikondilla.github.io/globehoppperstours/nepal/everest-base-camp
 
 ### 404 Page:
-- https://charansaikondilla.github.io/travelagency/invalid-route
+- https://charansaikondilla.github.io/globehoppperstours/invalid-route
 
 ---
 
@@ -131,14 +131,14 @@ After deployment, test these routes:
 ### If deployment fails:
 
 1. **Check Actions Tab**
-   - Visit: https://github.com/charansaikondilla/travelagency/actions
+   - Visit: https://github.com/charansaikondilla/globehoppperstours/actions
    - Click on the failed workflow
    - Check error logs
 
 2. **Common Issues**:
    - **Build errors**: Check if all dependencies are installed
    - **Permission errors**: Ensure GitHub Pages is enabled with correct permissions
-   - **404 on assets**: Verify `base: '/travelagency/'` is set in vite.config.ts
+   - **404 on assets**: Verify `base: '/globehoppperstours/'` is set in vite.config.ts
 
 3. **Rebuild Manually**:
    - Go to Actions tab
@@ -179,4 +179,4 @@ If you encounter any issues:
 ---
 
 *Last Updated: January 9, 2026*
-*Repository: https://github.com/charansaikondilla/travelagency*
+*Repository: https://github.com/charansaikondilla/globehoppperstours*

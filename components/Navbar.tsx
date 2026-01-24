@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'Holidays', path: '/holidays' },
-        { name: 'India', path: '/india-packages' },
+        { name: 'India', path: '/india' },
         { name: 'Visa', path: '/visa' },
         { name: 'Insurance', path: '/insurance' },
         { name: 'About', path: '/about' },
@@ -90,9 +90,9 @@ const Navbar: React.FC = () => {
                             </div>
                             <div className="flex flex-col -space-y-1">
                                 <h1 className="text-2xl font-black tracking-tighter text-white leading-none">
-                                    globe<span className="text-blue-500">hoppertours</span>
+                                    Globe<span className="text-blue-500">HoppersTours</span>
                                 </h1>
-                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 opacity-60 ml-0.5">travel elite</span>
+                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 opacity-60 ml-0.5">from hop to horizon</span>
                             </div>
                             {/* Logo Glow */}
                             <div className="absolute -inset-4 bg-blue-600/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />

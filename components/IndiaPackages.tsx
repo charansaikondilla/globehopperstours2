@@ -19,6 +19,9 @@ const IndiaPackages: React.FC = () => {
                 { name: 'Badrinath', state: 'Uttarakhand', details: 'Badrinath Temple (Char Dham)' },
                 { name: 'Gangotri', state: 'Uttarakhand', details: 'Origin of River Ganga' },
                 { name: 'Yamunotri', state: 'Uttarakhand', details: 'Origin of River Yamuna' },
+                { name: 'Kashmir', state: 'J&K', details: 'Srinagar, Gulmarg, Sonamarg' },
+                { name: 'Manali', state: 'Himachal Pradesh', details: 'Hadimba Temple, Solang Valley' },
+                { name: 'Simla', state: 'Himachal Pradesh', details: 'Jakhu Temple, The Ridge' },
             ]
         },
         south: {

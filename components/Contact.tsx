@@ -9,11 +9,14 @@ const Contact: React.FC = () => {
         name: '',
         email: '',
         phone: '',
+        country: '',
         message: '',
     });
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwIZTBqG_t-m1prFDc4FyeslOFfmn9g2IXAkH239FpzwY1-MkDDFNRAgReObRvL6HDldw/exec'; // TODO: Replace with your actual deployment URL
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -43,6 +46,10 @@ const Contact: React.FC = () => {
             newErrors.phone = 'Please enter a valid phone number';
         }
 
+        if (!formData.country.trim()) {
+            newErrors.country = 'Country is required';
+        }
+
         if (!formData.message.trim()) {
             newErrors.message = 'Message is required';
         } else if (formData.message.trim().length < 10) {
@@ -62,15 +69,33 @@ const Contact: React.FC = () => {
 
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('type', 'contact');
+            formDataToSend.append('name', formData.name);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('phone', formData.phone);
+            formDataToSend.append('country', formData.country);
+            formDataToSend.append('message', formData.message);
 
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formDataToSend,
+                mode: 'no-cors' // Important for Google Apps Script
+            });
 
-        // Reset success message after 5 seconds
-        setTimeout(() => setIsSubmitted(false), 5000);
+            setIsSubmitted(true);
+            setFormData({ name: '', email: '', phone: '', country: '', message: '' });
+
+            // Reset success message after 5 seconds
+            setTimeout(() => setIsSubmitted(false), 5000);
+            alert("Successful and team will contact you shortly!");
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Something went wrong. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -163,6 +188,24 @@ const Contact: React.FC = () => {
                                         placeholder="+1 (555) 123-4567"
                                     />
                                     {errors.phone && <p className="mt-2 text-xs font-bold text-red-400 uppercase tracking-tighter">{errors.phone}</p>}
+                                </div>
+
+                                {/* Country Field */}
+                                <div>
+                                    <label htmlFor="country" className="block text-sm font-bold mb-3 text-slate-400 tracking-widest uppercase">
+                                        Country *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="country"
+                                        name="country"
+                                        value={formData.country}
+                                        onChange={handleChange}
+                                        className={`w-full px-5 py-4 bg-white/5 border ${errors.country ? 'border-red-500/50 focus:ring-red-500/20' : 'border-white/10 focus:border-blue-500 focus:ring-blue-500/20'
+                                            } rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:ring-4 transition-all duration-300`}
+                                        placeholder="e.g. USA, UK, India"
+                                    />
+                                    {errors.country && <p className="mt-2 text-xs font-bold text-red-400 uppercase tracking-tighter">{errors.country}</p>}
                                 </div>
 
                                 {/* Message Field */}

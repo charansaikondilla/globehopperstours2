@@ -38,7 +38,9 @@ const HomePage: React.FC = () => {
     };
 
     const handleCountryNotFound = () => {
-        alert("Country not found. Please check the spelling and try again.");
+        if (window.confirm("Country not found. Would you like to contact us for a custom package?")) {
+            navigate('/contact');
+        }
     };
 
     const handleCountryFound = (countryName: string) => {
@@ -104,12 +106,12 @@ const HomePage: React.FC = () => {
     // Popular Destinations Mock (linking to logic)
     // Popular Destinations Mock (linking to logic)
     const destinations = [
-        { name: "Europe", title: "Europe Hop", img: "https://images.unsplash.com/photo-1499856871940-a09627c6d7db?q=80&w=2670&auto=format&fit=crop", flag: "🇪🇺", price: "From $899", duration: "8 Days" },
-        { name: "Dubai", title: "Dubai Luxury", img: "https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2670&auto=format&fit=crop", flag: "🇦🇪", price: "From $749", duration: "6 Days" },
+        { name: "Malaysia", title: "Malaysia Truly Asia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", flag: "🇲🇾", price: "From $599", duration: "5 Days" },
+        { name: "Dubai", title: "Dubai Luxury", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", flag: "🇦🇪", price: "From $749", duration: "6 Days" },
         { name: "Singapore", title: "Singapore City", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", flag: "🇸🇬", price: "From $699", duration: "5 Days" },
         { name: "Thailand", title: "Thailand Getaway", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", flag: "🇹🇭", price: "From $849", duration: "7 Days" },
         { name: "Maldives", title: "Maldives Escape", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", flag: "🇲🇻", price: "From $1199", duration: "5 Days" },
-        { name: "United States", title: "USA Classics", img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2699&auto=format&fit=crop", flag: "🇺🇸", price: "From $999", duration: "7 Days" }
+        { name: "Europe", title: "Europe Hop", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", flag: "🇪🇺", price: "From $899", duration: "8 Days" }
     ];
 
     return (

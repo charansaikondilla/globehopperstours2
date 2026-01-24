@@ -8,8 +8,8 @@ const AboutUs: React.FC = () => {
     return (
         <>
             <Helmet>
-                <title>About Us - Globalhopperstours | Your Premium Travel Partner</title>
-                <meta name="description" content="Learn about Globalhopperstours - your trusted partner for premium travel experiences worldwide. Discover our story, mission, and dedicated team." />
+                <title>About Us - GlobeHoppersTours | Your Premium Travel Partner</title>
+                <meta name="description" content="Learn about GlobeHoppersTours - your trusted partner for premium travel experiences worldwide. Discover our story, mission, and dedicated team." />
             </Helmet>
 
             <Navbar />
@@ -23,8 +23,8 @@ const AboutUs: React.FC = () => {
                         <div className="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-8 animate-shimmer">
                             Excellence in Motion
                         </div>
-                        <h1 className="text-6xl md:text-8xl font-black mb-8 bg-gradient-to-b from-white via-white to-blue-500 bg-clip-text text-transparent tracking-tighter leading-[0.9] italic">
-                            Redefining <br className="hidden md:block" /> <span className="text-blue-500">Global Hoppers</span>
+                        <h1 className="text-6xl md:text-8xl font-black mb-8 bg-gradient-to-b from-white via-white to-blue-500 bg-clip-text text-transparent tracking-tighter leading-[0.9] italic font-serif">
+                            Redefining <br className="hidden md:block" /> <span className="text-blue-500 font-sans not-italic">GlobeHoppersTours</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light tracking-wide italic leading-relaxed">
                             Crafting <span className="text-white font-bold">transcendental journeys</span> for the discerning traveler since our inception.
@@ -41,7 +41,7 @@ const AboutUs: React.FC = () => {
                             </h2>
                             <div className="space-y-8 max-w-4xl relative z-10">
                                 <p className="text-xl text-slate-300 leading-relaxed font-light italic">
-                                    Founded with a passion for architectural exploration and cultural mastery, <span className="text-white font-bold">Global Hoppers</span> has been architecting extraordinary narratives for the world's most curious souls. We believe that true travel is an art form—a delicate balance of <span className="text-blue-400">masterful logistics</span> and spontaneous wonder.
+                                    Founded with a passion for architectural exploration and cultural mastery, <span className="text-white font-bold">GlobeHoppersTours</span> has been architecting extraordinary narratives for the world's most curious souls. We believe that true travel is an art form—a delicate balance of <span className="text-blue-400">masterful logistics</span> and spontaneous wonder.
                                 </p>
                                 <p className="text-xl text-slate-300 leading-relaxed font-light italic">
                                     Our curators traverse every corner of the earth to verify every sanctuary, ensuring that your path is marked by nothing but excellence and authentic connection.
@@ -74,10 +74,9 @@ const AboutUs: React.FC = () => {
                         </h2>
                         <div className="grid md:grid-cols-4 gap-8">
                             {[
-                                { name: 'Sarah Johnson', role: 'Founder & CEO', emoji: '👩‍💼' },
-                                { name: 'Michael Chen', role: 'Head of Operations', emoji: '👨‍💻' },
-                                { name: 'Priya Sharma', role: 'Travel Curator', emoji: '👩‍✈️' },
-                                { name: 'David Martinez', role: 'Customer Experience', emoji: '👨‍🎓' },
+                                { name: 'Kolipaka Vyshalini', role: 'Founder', emoji: '👩‍💼' },
+                                { name: 'Charan Sai Kondilla', role: 'Head of Operation', emoji: '👨‍💻' },
+                                { name: 'Pavan Sai Kondilla', role: 'Customer Experience', emoji: '👨‍🎓' },
                             ].map((member, index) => (
                                 <div
                                     key={index}
@@ -121,7 +120,7 @@ const AboutUs: React.FC = () => {
                         <div className="glass-card rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
                             <h3 className="text-xl font-bold text-white mb-3">Q. Do you provide travel insurance?</h3>
                             <p className="text-slate-400 leading-relaxed">
-                                <strong className="text-blue-400">A.</strong> Yes, Globehopper Tours offers travel insurance assistance through trusted insurance partners.
+                                <strong className="text-blue-400">A.</strong> Yes, GlobeHoppersTours offers travel insurance assistance through trusted insurance partners.
                             </p>
                         </div>
                         <div className="glass-card rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">

@@ -15,16 +15,17 @@ interface UserData {
     name: string;
     email: string;
     mobile: string;
+    country: string;
     preference: string;
 }
 
 const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [messages, setMessages] = useState<Message[]>([
-        { id: '1', text: "Welcome aboard! ✈️ I'm Captain Aero. Ready to plan your dream vacation?", sender: 'bot' }
+        { id: '1', text: "Welcome aboard! ✈️ I'm Captain GHT TOURS. Ready to plan your dream vacation?", sender: 'bot' }
     ]);
     const [inputValue, setInputValue] = useState('');
-    const [step, setStep] = useState<'name' | 'email' | 'mobile' | 'preference' | 'done'>('name');
-    const [userData, setUserData] = useState<UserData>({ name: '', email: '', mobile: '', preference: '' });
+    const [step, setStep] = useState<'name' | 'email' | 'mobile' | 'country' | 'preference' | 'done'>('name');
+    const [userData, setUserData] = useState<UserData>({ name: '', email: '', mobile: '', country: '', preference: '' });
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -36,8 +37,13 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         scrollToBottom();
     }, [messages, isTyping]);
 
+    const hasRun = useRef(false);
+
     useEffect(() => {
+        if (hasRun.current) return;
+
         if (step === 'name' && messages.length === 1) {
+            hasRun.current = true;
             setTimeout(() => {
                 addBotMessage("Before we take off, what name should I put on your boarding pass?");
             }, 1000);
@@ -82,6 +88,11 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 break;
             case 'mobile':
                 setUserData({ ...userData, mobile: input });
+                setStep('country');
+                addBotMessage("Which country are you planning to visit? 🗺️");
+                break;
+            case 'country':
+                setUserData({ ...userData, country: input });
                 setStep('preference');
                 addBotMessage("Great! Last question: What kind of trip are you looking for?", ["Beach 🏖️", "Mountain 🏔️", "City 🏙️", "Adventure 🧗"]);
                 break;
@@ -102,11 +113,24 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         setUserData(finalData);
         setStep('done');
 
-        // Simulate API Call to Google Sheets
-        console.log("Submitting to Sheets:", finalData);
-        // TODO: Add fetch call here
+        // Submit to Google Sheets
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwIZTBqG_t-m1prFDc4FyeslOFfmn9g2IXAkH239FpzwY1-MkDDFNRAgReObRvL6HDldw/exec';
 
-        addBotMessage(`Perfect! I've found some amazing ${preference} packages for you. Our agents will contact you shortly at ${finalData.mobile}. Stay tuned! ✈️`);
+        const formDataToSend = new FormData();
+        formDataToSend.append('type', 'chatbot');
+        formDataToSend.append('name', finalData.name);
+        formDataToSend.append('email', finalData.email);
+        formDataToSend.append('mobile', finalData.mobile);
+        formDataToSend.append('country', finalData.country);
+        formDataToSend.append('preference', preference);
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formDataToSend,
+            mode: 'no-cors'
+        }).catch(err => console.error("Error saving chat data:", err));
+
+        addBotMessage("Successful and team will contact you shortly.");
     };
 
     return (
@@ -114,7 +138,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="w-[350px] md:w-[400px] h-[500px] bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="w-[320px] h-[450px] bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         >
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-blue-900/50 to-purple-900/50 border-b border-white/10 flex justify-between items-center">
@@ -123,7 +147,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         <span className="text-xl">👨‍✈️</span>
                     </div>
                     <div>
-                        <h3 className="font-bold text-white text-sm">Captain Aero</h3>
+                        <h3 className="font-bold text-white text-sm">Captain GHT TOURS</h3>
                         <span className="text-xs text-blue-300 flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                             Online
@@ -143,8 +167,8 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     >
                         <div
                             className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
-                                    ? 'bg-blue-600 text-white rounded-tr-none'
-                                    : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
+                                ? 'bg-blue-600 text-white rounded-tr-none'
+                                : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
                                 }`}
                         >
                             {msg.text}

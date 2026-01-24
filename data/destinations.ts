@@ -423,7 +423,7 @@ export const destinationsData: DestinationsData = {
         currency: 'Indian Rupee (₹)',
         language: 'Hindi & English (plus 21 other official languages)',
         coordinates: [78.9629, 20.5937],
-        keywords: ['Delhi', 'Mumbai', 'Bangalore', 'Goa', 'Agra', 'Jaipur', 'Varanasi', 'Kolkata', 'Chennai', 'Kerala', 'Taj Mahal'],
+        keywords: ['Delhi', 'Mumbai', 'Bangalore', 'Goa', 'Agra', 'Jaipur', 'Varanasi', 'Kolkata', 'Chennai', 'Kerala', 'Taj Mahal', 'Kashmir', 'Manali', 'Simla'],
         packages: [
             {
                 id: 'golden-triangle',
@@ -436,6 +436,18 @@ export const destinationsData: DestinationsData = {
                 description: 'Discover India\'s most iconic route featuring the magnificent Taj Mahal and royal palaces.',
                 included: ['5 nights hotels', 'Daily breakfast', 'All transfers', 'Monument entries', 'English guide'],
                 excluded: ['Flights', 'Lunch & dinner', 'Tips', 'Camera fees']
+            },
+            {
+                id: 'himalayan-triangle',
+                title: 'Himalayan Triangle Adventure',
+                location: 'Kashmir • Manali • Simla',
+                image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=2670&auto=format&fit=crop',
+                features: ['Snowy Peaks', 'Dal Lake Shikara', 'Rohtang Pass', 'Mall Road', 'Hill Stations'],
+                price: '$599',
+                duration: '7 Days / 6 Nights',
+                description: 'Experience the breathtaking beauty of North India connecting the paradise of Kashmir with the charm of Manali and Simla.',
+                included: ['6 nights mountain resorts', 'Daily breakfast & dinner', 'Private vehicle', 'Shikara ride', 'Sightseeing'],
+                excluded: ['Flights', 'Lunch', 'Adventure sports activities', 'Tips']
             },
             {
                 id: 'rajasthan-royal',
@@ -792,7 +804,7 @@ export const destinationsData: DestinationsData = {
         displayName: 'Europe',
         tagline: 'The Old World Awaits',
         description: 'Journey through the history, art, and romance of Europe\'s most iconic cities.',
-        heroImage: 'https://images.unsplash.com/photo-1499856871940-a09627c6d7db?q=80&w=2670&auto=format&fit=crop',
+        heroImage: 'https://i.ibb.co/CpDFwYLv/unnamed.webp',
         highlights: ['Eiffel Tower', 'Colosseum', 'Swiss Alps', 'Amsterdam Canals', 'Santorini'],
         coordinates: [10.4515, 51.1657],
         packages: [
