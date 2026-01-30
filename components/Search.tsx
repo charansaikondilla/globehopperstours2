@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getSearchSuggestions } from '../utils/searchLogic';
+import { useDestinations } from '../context/DestinationsContext';
 
 interface SearchProps {
   onSearch: (countryName: string) => void;
 }
 
 const Search: React.FC<SearchProps> = ({ onSearch }) => {
+  const { destinations } = useDestinations();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -29,7 +31,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     setSearchTerm(value);
 
     if (value.trim().length >= 2) {
-      const results = getSearchSuggestions(value);
+      const results = getSearchSuggestions(value, destinations); // Pass dynamic data
       setSuggestions(results);
       setShowSuggestions(true);
     } else {

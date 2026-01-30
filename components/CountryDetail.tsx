@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { destinationsData } from '../data/destinations';
+import { useDestinations } from '../context/DestinationsContext';
 import Navbar from './Navbar';
 
 const CountryDetail: React.FC = () => {
     const { country } = useParams<{ country: string }>();
     const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false);
+    const { destinations } = useDestinations(); // Use Hook
 
     // Get country data or use default
-    const data = destinationsData[country || ''] || destinationsData['default'];
+    // Access from context 'destinations' instead of static 'destinationsData'
+    const data = destinations[country || ''] || destinations['default'];
     const countryName = country
         ? country.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : data.displayName;

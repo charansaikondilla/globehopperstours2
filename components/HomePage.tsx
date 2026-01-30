@@ -13,8 +13,11 @@ interface Destination {
 
 import { findDestination } from '../utils/searchLogic';
 
+import { useDestinations } from '../context/DestinationsContext';
+
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
+    const { destinations: allDestinations } = useDestinations(); // Rename to avoid collision
     const [searchQuery, setSearchQuery] = useState<string | null>(null);
     const [targetCoordinates, setTargetCoordinates] = useState<[number, number] | null>(null);
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
@@ -22,14 +25,11 @@ const HomePage: React.FC = () => {
     const handleSearch = (query: string) => {
         setSelectedDestination(null);
 
-        // Use smart search logic
-        const result = findDestination(query);
+        // Use smart search logic with dynamic data
+        const result = findDestination(query, allDestinations); // Pass renamed var
 
         if (result) {
             setSearchQuery(result.name);
-            // We can temporarily store coordinates in a way to pass them to Earth
-            // Since Earth listens to searchQuery changes, we need to pass coordinates simultaneously
-            // Ideally, we add a state for targetCoordinates
             setTargetCoordinates(result.coordinates);
         } else {
             setSearchQuery(query);
@@ -104,15 +104,25 @@ const HomePage: React.FC = () => {
     ];
 
     // Popular Destinations Mock (linking to logic)
-    // Popular Destinations Mock (linking to logic)
-    const destinations = [
-        { name: "Malaysia", title: "Malaysia Truly Asia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", flag: "🇲🇾", price: "From $599", duration: "5 Days" },
-        { name: "Dubai", title: "Dubai Luxury", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", flag: "🇦🇪", price: "From $749", duration: "6 Days" },
-        { name: "Singapore", title: "Singapore City", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", flag: "🇸🇬", price: "From $699", duration: "5 Days" },
-        { name: "Thailand", title: "Thailand Getaway", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", flag: "🇹🇭", price: "From $849", duration: "7 Days" },
-        { name: "Maldives", title: "Maldives Escape", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", flag: "🇲🇻", price: "From $1199", duration: "5 Days" },
-        { name: "Europe", title: "Europe Hop", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", flag: "🇪🇺", price: "From $899", duration: "8 Days" }
+    const popularDestinations = [
+        { key: "malaysia", name: "Malaysia", title: "Malaysia Truly Asia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", flag: "🇲🇾", defaultPrice: "From $599", duration: "5 Days" },
+        { key: "united-arab-emirates", name: "Dubai", title: "Dubai Luxury", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", flag: "🇦🇪", defaultPrice: "From $749", duration: "6 Days" },
+        { key: "singapore", name: "Singapore", title: "Singapore City", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", flag: "🇸🇬", defaultPrice: "From $699", duration: "5 Days" },
+        { key: "thailand", name: "Thailand", title: "Thailand Getaway", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", flag: "🇹🇭", defaultPrice: "From $849", duration: "7 Days" },
+        { key: "maldives", name: "Maldives", title: "Maldives Escape", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", flag: "🇲🇻", defaultPrice: "From $1199", duration: "5 Days" },
+        { key: "europe", name: "Europe", title: "Europe Hop", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", flag: "🇪🇺", defaultPrice: "From $899", duration: "8 Days" }
     ];
+
+    const getDynamicPrice = (key: string, defaultPrice: string) => {
+        const data = allDestinations[key];
+        if (data && data.packages && data.packages.length > 0) {
+            // Use the first package price as the "From" price
+            // Or ideally use Math.min if prices were numbers, but they are strings '$XXX'
+            // For now, simple fallback to first package
+            return `From ${data.packages[0].price}`;
+        }
+        return defaultPrice;
+    };
 
     return (
         <main className="relative min-h-screen bg-black text-white selection:bg-blue-500/30">
@@ -197,7 +207,7 @@ const HomePage: React.FC = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {destinations.map((dest) => (
+                            {popularDestinations.map((dest) => (
                                 <div
                                     key={dest.name}
                                     onClick={() => handleCountryFound(dest.name === "South Korea" ? "south-korea" : (dest.name === "United States" ? "united-states" : dest.name.toLowerCase()))}
@@ -215,7 +225,7 @@ const HomePage: React.FC = () => {
                                     <div className="absolute bottom-0 left-0 right-0 p-6 z-20 h-2/5 flex flex-col justify-between bg-[#0a1128]">
                                         <div>
                                             <h3 className="font-black text-2xl leading-tight mb-1 text-white">{dest.name === "United States" ? "USA" : dest.name}</h3>
-                                            <p className="text-sm text-slate-400 font-medium mb-3">{dest.duration} / <span className="text-white font-bold">{dest.price}</span></p>
+                                            <p className="text-sm text-slate-400 font-medium mb-3">{dest.duration} / <span className="text-white font-bold">{getDynamicPrice(dest.key, dest.defaultPrice)}</span></p>
                                         </div>
 
                                         <button className="w-full py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold text-sm hover:from-blue-500 hover:to-blue-700 transition-all shadow-lg flex items-center justify-center gap-2 group-hover:gap-3">

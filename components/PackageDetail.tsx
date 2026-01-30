@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { destinationsData, TravelPackage, CountryData } from '../data/destinations';
+import { TravelPackage, CountryData } from '../data/destinations'; // Keep interface imports
+import { useDestinations } from '../context/DestinationsContext';
 import Navbar from './Navbar';
 
 const PackageDetail: React.FC = () => {
@@ -9,9 +10,10 @@ const PackageDetail: React.FC = () => {
     const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
+    const { destinations } = useDestinations(); // Use Hook
 
     // Get country data with fallback to default for generic pages
-    const countryData: CountryData | undefined = destinationsData[country || ''] || destinationsData['default'];
+    const countryData: CountryData | undefined = destinations[country || ''] || destinations['default'];
     const packageData: TravelPackage | undefined = countryData?.packages.find(pkg => pkg.id === packageId);
 
     useEffect(() => {

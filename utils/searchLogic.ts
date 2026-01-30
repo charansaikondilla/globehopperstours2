@@ -1,5 +1,5 @@
 
-import { destinationsData, CountryData } from '../data/destinations';
+import { DestinationsData, CountryData } from '../data/destinations';
 
 // Levenshtein distance for fuzzy matching
 const levenshteinDistance = (a: string, b: string): number => {
@@ -47,22 +47,25 @@ export interface DestinationResult {
     coordinates: [number, number];
 }
 
-export const findDestination = (query: string): DestinationResult | null => {
+/**
+ * Updated to accept dynamic destinationsData
+ */
+export const findDestination = (query: string, data: DestinationsData): DestinationResult | null => {
     const normalizedQuery = query.toLowerCase().trim();
     if (!normalizedQuery) return null;
 
     let bestMatch: SearchResult | null = null;
     const threshold = 3; // Max edit distance allowed for fuzzy match
 
-    const entries = Object.entries(destinationsData);
+    const entries = Object.entries(data);
 
-    for (const [key, data] of entries) {
+    for (const [key, countryData] of entries) {
         // 1. Check Country Name (Exact & Fuzzy)
-        const countryName = data.displayName.toLowerCase();
+        const countryName = countryData.displayName.toLowerCase();
 
         // Exact
         if (countryName === normalizedQuery) {
-            return { name: data.displayName, coordinates: data.coordinates };
+            return { name: countryData.displayName, coordinates: countryData.coordinates };
         }
 
         // Fuzzy Country Name (e.g. "Thaliand" -> "Thailand")
@@ -77,8 +80,8 @@ export const findDestination = (query: string): DestinationResult | null => {
         }
 
         // 2. Check Keywords (Cities, synonyms)
-        if (data.keywords) {
-            for (const keyword of data.keywords) {
+        if (countryData.keywords) {
+            for (const keyword of countryData.keywords) {
                 const lowerKeyword = keyword.toLowerCase();
 
                 // Exact Keyword Match
@@ -101,8 +104,8 @@ export const findDestination = (query: string): DestinationResult | null => {
         }
 
         // 3. Check Package Locations & Titles
-        if (data.packages) {
-            for (const pkg of data.packages) {
+        if (countryData.packages) {
+            for (const pkg of countryData.packages) {
                 const locationWords = pkg.location.toLowerCase().split(/[•, ]+/); // Split by common separators
 
                 // Check against location words
@@ -125,32 +128,32 @@ export const findDestination = (query: string): DestinationResult | null => {
     }
 
     if (bestMatch) {
-        const data = destinationsData[bestMatch.countryKey];
-        return { name: data.displayName, coordinates: data.coordinates };
+        const resultData = data[bestMatch.countryKey];
+        return { name: resultData.displayName, coordinates: resultData.coordinates };
     }
 
     return null;
 };
 
-// New function for search suggestions
-export const getSearchSuggestions = (query: string): string[] => {
+// Updated function for search suggestions to accept dynamic data
+export const getSearchSuggestions = (query: string, data: DestinationsData): string[] => {
     const normalizedQuery = query.toLowerCase().trim();
     if (!normalizedQuery || normalizedQuery.length < 2) return [];
 
     const suggestions = new Set<string>();
-    const entries = Object.entries(destinationsData);
+    const entries = Object.entries(data);
 
-    for (const [_, data] of entries) {
+    for (const [_, countryData] of entries) {
         // Check Country Name
-        if (data.displayName.toLowerCase().includes(normalizedQuery)) {
-            suggestions.add(data.displayName);
+        if (countryData.displayName.toLowerCase().includes(normalizedQuery)) {
+            suggestions.add(countryData.displayName);
         }
 
         // Check Keywords
-        if (data.keywords) {
-            for (const keyword of data.keywords) {
+        if (countryData.keywords) {
+            for (const keyword of countryData.keywords) {
                 if (keyword.toLowerCase().includes(normalizedQuery)) {
-                    suggestions.add(`${keyword} (${data.displayName})`);
+                    suggestions.add(`${keyword} (${countryData.displayName})`);
                 }
             }
         }
@@ -159,3 +162,4 @@ export const getSearchSuggestions = (query: string): string[] => {
     // Convert Set to Array and take top 5
     return Array.from(suggestions).slice(0, 5);
 };
+
