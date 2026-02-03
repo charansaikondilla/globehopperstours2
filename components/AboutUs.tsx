@@ -75,8 +75,8 @@ const AboutUs: React.FC = () => {
                         <div className="grid md:grid-cols-4 gap-8">
                             {[
                                 { name: 'Kolipaka Vyshalini', role: 'Founder', emoji: '👩‍💼' },
+                                { name: 'Kolipaka Vaishnavi', role: 'Co-founder', emoji: '👩‍💼' },
                                 { name: 'Charan Sai Kondilla', role: 'Head of Operation', emoji: '👨‍💻' },
-                                { name: 'Pavan Sai Kondilla', role: 'Customer Experience', emoji: '👨‍🎓' },
                             ].map((member, index) => (
                                 <div
                                     key={index}
