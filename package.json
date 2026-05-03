@@ -1,0 +1,40 @@
+{
+  "name": "3d-rotating-earth",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://www.globehopperstours.com",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@types/d3": "^7.4.3",
+    "@types/three": "^0.182.0",
+    "@types/topojson-client": "^3.1.5",
+    "d3": "^7.9.0",
+    "framer-motion": "^12.26.2",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.11.0",
+    "three": "^0.182.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.23",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "3D Rotating Earth",
+  "description": "An interactive 3D model of a rotating Earth set against a dynamic starry space background, built with React, D3.js, and Tailwind CSS.",
+  "requestFramePermissions": []
+}
