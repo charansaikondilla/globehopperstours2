@@ -21,6 +21,46 @@ const HomePage: React.FC = () => {
     const [targetCoordinates, setTargetCoordinates] = useState<[number, number] | null>(null);
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
+    const destinationPool = [
+        { key: "japan", name: "Japan", img: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
+        { key: "malaysia", name: "Malaysia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $599", duration: "5 Days" },
+        { key: "united-arab-emirates", name: "Dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $749", duration: "6 Days" },
+        { key: "singapore", name: "Singapore", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", defaultPrice: "From $699", duration: "5 Days" },
+        { key: "thailand", name: "Thailand", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", defaultPrice: "From $849", duration: "7 Days" },
+        { key: "maldives", name: "Maldives", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", defaultPrice: "From $1199", duration: "5 Days" },
+        { key: "nepal", name: "Nepal", img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $499", duration: "10 Days" },
+        { key: "sri-lanka", name: "Sri Lanka", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $549", duration: "7 Days" },
+        { key: "india", name: "India", img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2671&auto=format&fit=crop", defaultPrice: "From $399", duration: "8 Days" },
+        { key: "china", name: "China", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $799", duration: "6 Days" },
+        { key: "vietnam", name: "Vietnam", img: "https://images.unsplash.com/photo-1528127220168-9a3114ed41f8?q=80&w=2574&auto=format&fit=crop", defaultPrice: "From $449", duration: "7 Days" },
+        { key: "south-korea", name: "South Korea", img: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
+        { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $1299", duration: "12 Days" }
+    ];
+
+    const [popularDestinations, setPopularDestinations] = useState(destinationPool.slice(0, 6));
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setPopularDestinations(current => {
+                const newDestinations = [...current];
+                const indexToReplace = Math.floor(Math.random() * 6);
+                
+                // Find a destination from the pool that isn't currently visible
+                const currentKeys = new Set(current.map(d => d.key));
+                const availablePool = destinationPool.filter(d => !currentKeys.has(d.key));
+                
+                if (availablePool.length > 0) {
+                    const randomReplacement = availablePool[Math.floor(Math.random() * availablePool.length)];
+                    newDestinations[indexToReplace] = randomReplacement;
+                }
+                
+                return newDestinations;
+            });
+        }, 3000); // Rotate every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     const handleSearch = (query: string) => {
         setSelectedDestination(null);
         const result = findDestination(query, allDestinations);
@@ -67,15 +107,6 @@ const HomePage: React.FC = () => {
         }
         return defaultPrice;
     };
-
-    const popularDestinations = [
-        { key: "malaysia", name: "Malaysia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $599", duration: "5 Days" },
-        { key: "united-arab-emirates", name: "Dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $749", duration: "6 Days" },
-        { key: "singapore", name: "Singapore", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", defaultPrice: "From $699", duration: "5 Days" },
-        { key: "thailand", name: "Thailand", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", defaultPrice: "From $849", duration: "7 Days" },
-        { key: "maldives", name: "Maldives", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", defaultPrice: "From $1199", duration: "5 Days" },
-        { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $899", duration: "8 Days" }
-    ];
 
     const features = [
         {
@@ -173,7 +204,6 @@ const HomePage: React.FC = () => {
                 </section>
 
                 <section className="relative py-24 sm:py-32 px-4 bg-black pointer-events-auto overflow-hidden">
-                    {/* Decorative Background Elements */}
                     <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
                     <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -188,13 +218,13 @@ const HomePage: React.FC = () => {
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="h-px w-12 bg-gradient-to-r from-blue-500 to-transparent" />
-                                    <span className="text-[10px] sm:text-xs font-black text-blue-400 uppercase tracking-[0.4em]">Curated Collections</span>
+                                    <span className="text-[10px] sm:text-xs font-black text-blue-400 uppercase tracking-[0.4em]">Live Collections</span>
                                 </div>
                                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
                                     Popular <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">Destinations</span>
                                 </h2>
                                 <p className="text-xs sm:text-sm text-white/40 max-w-md font-medium leading-relaxed">
-                                    Handpicked global experiences crafted for the discerning traveler. Explore our most sought-after horizons.
+                                    A dynamic window into the world's most breathtaking horizons. Always changing, always inspiring.
                                 </p>
                             </motion.div>
                             
@@ -216,60 +246,63 @@ const HomePage: React.FC = () => {
                             </motion.button>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 sm:gap-8">
-                            {popularDestinations.map((dest, i) => (
-                                <motion.div
-                                    key={dest.key}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    onClick={() => navigate(`/${dest.key}`)}
-                                    className="group relative h-[420px] sm:h-[480px] lg:h-[400px] xl:h-[450px] rounded-[3rem] overflow-hidden cursor-pointer border border-white/10 bg-white/[0.02] transition-all duration-500 hover:border-blue-500/30 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.2)]"
-                                >
-                                    {/* Image Container with Parallax Effect */}
-                                    <div className="absolute inset-0 overflow-hidden">
-                                        <img 
-                                            src={dest.img} 
-                                            alt={dest.name} 
-                                            className="absolute inset-0 w-full h-full object-cover scale-110 grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-100" 
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-                                    </div>
+                        {/* Modern Asymmetrical Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 auto-rows-[200px] sm:auto-rows-[250px]">
+                            {popularDestinations.map((dest, i) => {
+                                // Dynamic Grid Mapping for a unique asymmetrical look
+                                // 0: Large, 1: Tall, 2: Regular, 3: Wide, 4: Regular, 5: Regular
+                                const gridStyles = [
+                                    "col-span-2 row-span-2", // 0
+                                    "col-span-1 row-span-2", // 1
+                                    "col-span-1 row-span-1", // 2
+                                    "col-span-2 row-span-1", // 3
+                                    "col-span-1 row-span-1", // 4
+                                    "col-span-1 row-span-1", // 5
+                                ];
 
-                                    {/* Duration Badge */}
-                                    <div className="absolute top-6 right-6 z-20">
-                                        <div className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-widest text-white shadow-xl">
-                                            {dest.duration}
+                                return (
+                                    <motion.div
+                                        key={dest.key}
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                        onClick={() => navigate(`/${dest.key}`)}
+                                        className={`group relative rounded-[2.5rem] overflow-hidden cursor-pointer border border-white/10 bg-white/[0.02] transition-all duration-500 hover:border-blue-500/30 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.2)] ${gridStyles[i % gridStyles.length]}`}
+                                    >
+                                        <div className="absolute inset-0">
+                                            <motion.img 
+                                                key={dest.img}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                                src={dest.img} 
+                                                alt={dest.name} 
+                                                className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                         </div>
-                                    </div>
 
-                                    {/* Content */}
-                                    <div className="absolute inset-x-0 bottom-0 p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <div className="space-y-1">
-                                            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
-                                                {dest.name}
-                                            </h3>
-                                            <div className="flex items-center gap-2">
-                                                <div className="h-px w-4 bg-blue-500" />
-                                                <p className="text-[10px] sm:text-xs text-blue-300/80 font-black uppercase tracking-widest leading-none">
-                                                    {getDynamicPrice(dest.key, dest.defaultPrice)}
-                                                </p>
+                                        <div className="absolute top-4 right-4 z-20">
+                                            <div className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-[8px] font-black uppercase tracking-widest text-white">
+                                                {dest.duration}
                                             </div>
                                         </div>
 
-                                        {/* Action Hint */}
-                                        <div className="mt-6 pt-6 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white flex items-center gap-2">
-                                                Discover Experience <span className="text-blue-400">→</span>
-                                            </span>
+                                        <div className="absolute inset-x-0 bottom-0 p-6 z-20">
+                                            <h3 className="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors truncate">
+                                                {dest.name}
+                                            </h3>
+                                            <p className="text-[9px] sm:text-[10px] text-blue-300/80 font-black uppercase tracking-widest">
+                                                {getDynamicPrice(dest.key, dest.defaultPrice)}
+                                            </p>
                                         </div>
-                                    </div>
-
-                                    {/* Subtle Glow Overlay */}
-                                    <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/[0.03] transition-all duration-500 pointer-events-none" />
-                                </motion.div>
-                            ))}
+                                        
+                                        <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/[0.03] transition-all duration-500 pointer-events-none" />
+                                    </motion.div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
