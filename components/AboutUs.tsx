@@ -1,8 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-=======
-import Navbar from './Navbar';
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 import Stars from './Stars';
 import Footer from './Footer';
 
@@ -14,7 +11,7 @@ const AboutUs: React.FC = () => {
                 <meta name="description" content="Learn about GlobeHoppersTours - your trusted partner for premium travel experiences worldwide. Discover our story, mission, and dedicated team." />
             </Helmet>
 
-<<<<<<< HEAD
+
             <div className="min-h-screen bg-black text-white relative overflow-hidden">
                 <Stars />
 

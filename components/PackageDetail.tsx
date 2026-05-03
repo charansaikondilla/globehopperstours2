@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { TravelPackage, CountryData } from '../data/destinations'; // Keep interface imports
 import { useDestinations } from '../context/DestinationsContext';
-import Navbar from './Navbar';
+
 
 const PackageDetail: React.FC = () => {
     const { country, packageId } = useParams<{ country: string; packageId: string }>();
@@ -321,14 +321,12 @@ const PackageDetail: React.FC = () => {
                                         formData.append('type', 'booking');
                                         formData.append('packageTitle', packageData.title);
                                         formData.append('country', countryData.displayName || '');
-=======
 
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                         const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
                                         const originalText = btn.innerHTML;
                                         btn.disabled = true;
                                         btn.innerHTML = 'Booking...';
-<<<<<<< HEAD
+
                                         fetch(SCRIPT_URL, {
                                             method: 'POST',
                                             body: formData,

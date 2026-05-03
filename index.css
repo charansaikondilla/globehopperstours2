@@ -101,15 +101,13 @@ input, textarea, select {
   0% {
     background-position: -200% 0;
   }
-=======
 
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
   100% {
     background-position: 200% 0;
   }
 }
 
-<<<<<<< HEAD
+
 @keyframes twinkle {
   0%, 100% { opacity: 0.3; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1.1); }

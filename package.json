@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://charansaikondilla.github.io/globehopperstours2/",
+  "homepage": "https://www.globehopperstours.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
