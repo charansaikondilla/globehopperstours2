@@ -110,7 +110,17 @@ const HomePage: React.FC = () => {
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         className="absolute inset-0 z-0 flex items-center justify-center"
                     >
-                        <Earth targetCoordinates={targetCoordinates} />
+                        <Earth 
+                            searchQuery={searchQuery}
+                            targetCoordinates={targetCoordinates}
+                            onCountryNotFound={() => {}}
+                            onPinClick={(dest) => {
+                                // Find destination in our pool
+                                const matched = Object.values(allDestinations).find(d => d.name === dest.name);
+                                if (matched) setSelectedDestination(matched);
+                            }}
+                            isPaused={!!selectedDestination}
+                        />
                     </motion.div>
 
                     <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-12 sm:gap-16">
@@ -226,10 +236,12 @@ const HomePage: React.FC = () => {
                 </section>
             </main>
 
-            <DestinationPopup 
-                destination={selectedDestination} 
-                onClose={() => setSelectedDestination(null)} 
-            />
+            {selectedDestination && (
+                <DestinationPopup 
+                    destination={selectedDestination} 
+                    onClose={() => setSelectedDestination(null)} 
+                />
+            )}
 
             <Footer />
         </div>
