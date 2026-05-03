@@ -1,6 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import Navbar from './Navbar';
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 import Stars from './Stars';
 import Footer from './Footer';
 
@@ -57,6 +61,11 @@ const Visa: React.FC = () => {
                 <meta name="description" content="Get expert visa assistance for countries worldwide. Fast processing, document guidance, and high approval rates. Let us handle your visa application." />
             </Helmet>
 
+<<<<<<< HEAD
+=======
+            <Navbar />
+
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
             <div className="min-h-screen bg-black text-white relative overflow-hidden">
                 <Stars />
 

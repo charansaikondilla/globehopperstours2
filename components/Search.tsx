@@ -66,10 +66,17 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
 
   return (
     <div ref={wrapperRef} className="relative group w-full">
+<<<<<<< HEAD
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <div className="relative flex-grow w-full flex items-center">
           <div className="absolute left-3 sm:left-5 text-blue-400 group-focus-within:text-blue-300 transition-colors pointer-events-none z-10">
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+=======
+      <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <div className="relative flex-grow flex items-center">
+          <div className="absolute left-5 text-blue-400 group-focus-within:text-blue-300 transition-colors pointer-events-none z-10">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
@@ -80,15 +87,24 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
             onFocus={() => {
               if (searchTerm.trim().length >= 2) setShowSuggestions(true);
             }}
+<<<<<<< HEAD
             placeholder="Search destination..."
             className="w-full pl-10 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-5 glass-card bg-white/5 border-white/10 rounded-[1.5rem] sm:rounded-[2rem] text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white/10 transition-all duration-500 font-bold tracking-tight text-sm sm:text-lg shadow-2xl relative z-0"
+=======
+            placeholder="Search destination (e.g. Maldives, Paris)..."
+            className="w-full pl-14 pr-6 py-5 glass-card bg-white/5 border-white/10 rounded-[2rem] text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white/10 transition-all duration-500 font-bold tracking-tight text-lg shadow-2xl relative z-0"
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
             aria-label="Search for a country"
             autoComplete="off"
           />
         </div>
         <button
           type="submit"
+<<<<<<< HEAD
           className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-5 bg-white text-blue-700 font-black rounded-[1.5rem] sm:rounded-[2rem] hover:scale-105 active:scale-95 transition-all duration-500 shadow-xl shadow-blue-900/20 uppercase tracking-[0.1em] text-xs sm:text-sm whitespace-nowrap"
+=======
+          className="px-10 py-5 bg-white text-blue-700 font-black rounded-[2rem] hover:scale-105 active:scale-95 transition-all duration-500 shadow-xl shadow-blue-900/20 uppercase tracking-[0.1em] text-sm"
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
           aria-label="Submit search"
         >
           Discover
@@ -97,16 +113,27 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
 
       {/* Suggestions Dropdown */}
       {showSuggestions && suggestions.length > 0 && (
+<<<<<<< HEAD
         <div className="absolute top-full left-0 right-0 mt-2 bg-[#0f172a]/90 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-50 max-h-64 overflow-y-auto">
+=======
+        <div className="absolute top-full left-0 mt-2 w-[calc(100%-140px)] bg-[#0f172a]/90 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-50">
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
           <ul className="py-2">
             {suggestions.map((suggestion, index) => (
               <li
                 key={index}
                 onClick={() => handleSuggestionClick(suggestion)}
+<<<<<<< HEAD
                 className="px-4 sm:px-6 py-3 hover:bg-blue-500/20 cursor-pointer text-white font-medium transition-colors flex items-center gap-3 text-sm sm:text-base"
               >
                 <span className="text-blue-400 flex-shrink-0">✈</span>
                 <span className="truncate">{suggestion}</span>
+=======
+                className="px-6 py-3 hover:bg-blue-500/20 cursor-pointer text-white font-medium transition-colors flex items-center gap-3"
+              >
+                <span className="text-blue-400">✈</span>
+                {suggestion}
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
               </li>
             ))}
           </ul>

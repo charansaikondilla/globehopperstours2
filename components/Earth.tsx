@@ -96,7 +96,11 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
             const sensitivity = 75;
 
             if (!projectionRef.current) {
+<<<<<<< HEAD
                 const scale = Math.min(width, height) * 0.4;
+=======
+                const scale = Math.min(width, height) * 0.45;
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 initialScale = scale;
                 projectionRef.current = d3.geoOrthographic()
                     .scale(scale)
@@ -406,7 +410,11 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
 
 
 
+<<<<<<< HEAD
     return <svg ref={svgRef} className="cursor-move w-full h-full" style={{ display: 'block' }} />;
+=======
+    return <svg ref={svgRef} className="cursor-move" />;
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 };
 
 export default Earth;

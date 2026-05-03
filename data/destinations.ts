@@ -40,7 +40,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Japan',
         tagline: 'Where Ancient Tradition Meets Modern Innovation!',
         description: 'Experience the perfect blend of ancient temples, cutting-edge technology, exquisite cuisine, and breathtaking natural beauty in the Land of the Rising Sun.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Cherry Blossoms', 'Mount Fuji', 'Ancient Temples', 'Bullet Trains', 'Sushi & Ramen'],
         bestTime: 'March to May, September to November',
         currency: 'Japanese Yen (¥)',
@@ -52,7 +56,11 @@ export const destinationsData: DestinationsData = {
                 id: 'tokyo-modern-adventure',
                 title: 'Tokyo Modern Adventure',
                 location: 'Tokyo • Shibuya • Shinjuku • Akihabara',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Tokyo Tower Views', 'Shibuya Crossing', 'Robot Restaurant', 'Anime District', 'Tsukiji Fish Market'],
                 price: '$449',
                 duration: '4 Days / 3 Nights',
@@ -70,7 +78,11 @@ export const destinationsData: DestinationsData = {
                 id: 'kyoto-cultural-heritage',
                 title: 'Kyoto Cultural Heritage',
                 location: 'Kyoto • Nara • Osaka',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Fushimi Inari Shrine', 'Bamboo Forest', 'Geisha District', 'Golden Pavilion', 'Nara Deer Park'],
                 price: '$499',
                 duration: '5 Days / 4 Nights',
@@ -89,7 +101,11 @@ export const destinationsData: DestinationsData = {
                 id: 'mount-fuji-hakone',
                 title: 'Mount Fuji & Hakone Retreat',
                 location: 'Mount Fuji • Hakone • Lake Ashi',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1570459027562-4a916cc6113f?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1570459027562-4a916cc6113f?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Mt. Fuji Views', 'Hot Springs', 'Lake Cruise', 'Ropeway Cable Car', 'Traditional Ryokan'],
                 price: '$399',
                 duration: '3 Days / 2 Nights',
@@ -106,7 +122,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hiroshima-miyajima',
                 title: 'Hiroshima & Miyajima Island',
                 location: 'Hiroshima • Miyajima • Peace Memorial',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Peace Memorial Park', 'Floating Torii Gate', 'Itsukushima Shrine', 'Okonomiyaki Food', 'Island Hiking'],
                 price: '$359',
                 duration: '3 Days / 2 Nights',
@@ -118,7 +138,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hokkaido-winter-wonderland',
                 title: 'Hokkaido Winter Wonderland',
                 location: 'Sapporo • Otaru • Niseko',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1548481899-ad0be729a2d6?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1548481899-ad0be729a2d6?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Sapporo Snow Festival', 'Skiing & Snowboarding', 'Ice Sculptures', 'Fresh Seafood', 'Hot Springs'],
                 price: '$549',
                 duration: '5 Days / 4 Nights',
@@ -130,7 +154,11 @@ export const destinationsData: DestinationsData = {
                 id: 'grand-japan-journey',
                 title: 'Grand Japan Journey',
                 location: 'Tokyo • Kyoto • Osaka • Hiroshima • Mt. Fuji',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['10 Nights / 11 Days', 'JR Pass Included', 'Bullet Train Experience', 'Hot Springs Stay', 'Cherry Blossom Viewing', 'Culinary Tours'],
                 price: '$1,299',
                 duration: '11 Days / 10 Nights',
@@ -158,7 +186,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Philippines',
         tagline: 'More Fun in the Philippines - 7,641 Islands of Paradise!',
         description: 'Discover pristine beaches, vibrant coral reefs, stunning rice terraces, and warm Filipino hospitality across this tropical archipelago.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1532164728606-7a3403a932c2?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1532164728606-7a3403a932c2?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['White Sand Beaches', 'Diving & Snorkeling', 'Rice Terraces', 'Island Hopping', 'Filipino Cuisine'],
         bestTime: 'November to April',
         currency: 'Philippine Peso (₱)',
@@ -170,7 +202,11 @@ export const destinationsData: DestinationsData = {
                 id: 'palawan-el-nido',
                 title: 'Palawan El Nido Paradise',
                 location: 'El Nido • Nacpan Beach • Bacuit Bay',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1583257547450-f641c3e3d146?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1583257547450-f641c3e3d146?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Island Hopping Tours', 'Secret Lagoons', 'Snorkeling', 'Beach Resorts', 'Limestone Cliffs'],
                 price: '$399',
                 duration: '5 Days / 4 Nights',
@@ -182,7 +218,11 @@ export const destinationsData: DestinationsData = {
                 id: 'boracay-beach-escape',
                 title: 'Boracay Beach Escape',
                 location: 'Boracay • White Beach • Puka Beach',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1621277277899-e41b82d4edf6?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1621277277899-e41b82d4edf6?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['White Beach', 'Water Sports', 'Sunset Sailing', 'Beach Parties', 'Island Activities'],
                 price: '$349',
                 duration: '4 Days / 3 Nights',
@@ -194,7 +234,11 @@ export const destinationsData: DestinationsData = {
                 id: 'banaue-rice-terraces',
                 title: 'Banaue Rice Terraces Adventure',
                 location: 'Banaue • Batad • Sagada',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1580837119756-563d608dd119?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1580837119756-563d608dd119?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['UNESCO Rice Terraces', 'Village Trekking', 'Hanging Coffins', 'Cave Exploration', 'Ifugao Culture'],
                 price: '$299',
                 duration: '4 Days / 3 Nights',
@@ -206,7 +250,11 @@ export const destinationsData: DestinationsData = {
                 id: 'cebu-bohol-adventure',
                 title: 'Cebu & Bohol Adventure',
                 location: 'Cebu • Bohol • Panglao • Oslob',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Whale Shark Swimming', 'Chocolate Hills', 'Tarsier Sanctuary', 'Kawasan Falls', 'Beach Hopping'],
                 price: '$449',
                 duration: '6 Days / 5 Nights',
@@ -218,7 +266,11 @@ export const destinationsData: DestinationsData = {
                 id: 'siargao-surfing',
                 title: 'Siargao Surfing & Island Life',
                 location: 'Siargao • Cloud 9 • Sugba Lagoon',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Cloud 9 Surf Break', 'Island Hopping', 'Magpupungko Pools', 'Surfing Lessons', 'Beach Vibes'],
                 price: '$379',
                 duration: '5 Days / 4 Nights',
@@ -230,7 +282,11 @@ export const destinationsData: DestinationsData = {
                 id: 'ultimate-philippines',
                 title: 'Ultimate Philippines Island Odyssey',
                 location: 'Manila • Palawan • Boracay • Bohol • Cebu',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1584571942559-29106d9c1a4f?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1584571942559-29106d9c1a4f?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['12 Nights / 13 Days', 'Multi-Island Experience', 'Beach & Culture Mix', 'Water Activities', 'Local Food Tours', 'All Transfers Included'],
                 price: '$1,099',
                 duration: '13 Days / 12 Nights',
@@ -245,7 +301,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Nepal',
         tagline: 'Roof of the World - Where Mountains Touch the Sky!',
         description: 'Experience the majestic Himalayas, ancient temples, spiritual enlightenment, and warm Nepali hospitality in this mountain kingdom.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Mount Everest', 'Himalayan Trekking', 'Buddhist Temples', 'Spiritual Journey', 'Adventure Sports'],
         bestTime: 'October to November, March to April',
         currency: 'Nepali Rupee (NPR)',
@@ -256,7 +316,11 @@ export const destinationsData: DestinationsData = {
                 id: 'everest-base-camp',
                 title: 'Everest Base Camp Trek',
                 location: 'Lukla • Namche Bazaar • EBC • Kala Patthar',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1571898264949-b5f7f40e8f87?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1571898264949-b5f7f40e8f87?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Everest Views', 'Sherpa Villages', 'Buddhist Monasteries', 'Kala Patthar Sunrise', 'Mountain Lodges'],
                 price: '$1,299',
                 duration: '14 Days / 13 Nights',
@@ -268,7 +332,11 @@ export const destinationsData: DestinationsData = {
                 id: 'annapurna-circuit',
                 title: 'Annapurna Circuit Trek',
                 location: 'Pokhara • Manang • Thorong La Pass',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Thorong La Pass', 'Diverse Landscapes', 'Hot Springs', 'Mountain Villages', 'Panoramic Views'],
                 price: '$999',
                 duration: '12 Days / 11 Nights',
@@ -280,7 +348,11 @@ export const destinationsData: DestinationsData = {
                 id: 'kathmandu-culture',
                 title: 'Kathmandu Valley Cultural Tour',
                 location: 'Kathmandu • Bhaktapur • Patan • Nagarkot',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['UNESCO Sites', 'Ancient Temples', 'Durbar Squares', 'Himalayan Views', 'Local Crafts'],
                 price: '$349',
                 duration: '5 Days / 4 Nights',
@@ -292,7 +364,11 @@ export const destinationsData: DestinationsData = {
                 id: 'pokhara-adventure',
                 title: 'Pokhara Adventure & Relaxation',
                 location: 'Pokhara • Phewa Lake • Sarangkot',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1558979423-2141ce3e05e6?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1558979423-2141ce3e05e6?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Paragliding', 'Sunrise Views', 'Boating', 'Peace Pagoda', 'Mountain Panorama'],
                 price: '$299',
                 duration: '4 Days / 3 Nights',
@@ -304,7 +380,11 @@ export const destinationsData: DestinationsData = {
                 id: 'chitwan-safari',
                 title: 'Chitwan Jungle Safari',
                 location: 'Chitwan National Park',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Wildlife Safari', 'Elephant Spotting', 'Jungle Activities', 'Cultural Dance', 'Nature Walks'],
                 price: '$279',
                 duration: '3 Days / 2 Nights',
@@ -316,7 +396,11 @@ export const destinationsData: DestinationsData = {
                 id: 'nepal-grand-adventure',
                 title: 'Nepal Grand Adventure',
                 location: 'Kathmandu • Pokhara • Chitwan • Nagarkot',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['10 Nights / 11 Days', 'Culture & Nature Mix', 'Himalayan Views', 'Jungle Safari', 'Mountain Flight', 'Spiritual Sites'],
                 price: '$899',
                 duration: '11 Days / 10 Nights',
@@ -331,7 +415,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Sri Lanka',
         tagline: 'The Pearl of the Indian Ocean!',
         description: 'Discover ancient ruins, lush tea plantations, pristine beaches, incredible wildlife, and rich cultural heritage in this island paradise.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Ancient Temples', 'Tea Plantations', 'Safari', 'Beaches', 'Colonial Heritage'],
         bestTime: 'December to March, July to September',
         currency: 'Sri Lankan Rupee (LKR)',
@@ -342,7 +430,11 @@ export const destinationsData: DestinationsData = {
                 id: 'cultural-triangle',
                 title: 'Cultural Triangle Explorer',
                 location: 'Anuradhapura • Polonnaruwa • Sigiriya • Dambulla',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Sigiriya Rock Fortress', 'Ancient Ruins', 'Cave Temples', 'UNESCO Sites', 'Village Tours'],
                 price: '$449',
                 duration: '5 Days / 4 Nights',
@@ -354,7 +446,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hill-country-tea',
                 title: 'Hill Country & Tea Plantations',
                 location: 'Kandy • Nuwara Eliya • Ella',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Tea Factory Visits', 'Scenic Train Ride', 'Nine Arch Bridge', 'Waterfalls', 'Cool Climate'],
                 price: '$399',
                 duration: '4 Days / 3 Nights',
@@ -366,7 +462,11 @@ export const destinationsData: DestinationsData = {
                 id: 'yala-safari',
                 title: 'Yala Wildlife Safari',
                 location: 'Yala National Park • Tissamaharama',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1534177616072-ef7dc120449d?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1534177616072-ef7dc120449d?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Leopard Spotting', 'Elephant Herds', 'Safari Jeep Tours', 'Bird Watching', 'Beach Nearby'],
                 price: '$329',
                 duration: '3 Days / 2 Nights',
@@ -378,7 +478,11 @@ export const destinationsData: DestinationsData = {
                 id: 'south-coast-beaches',
                 title: 'South Coast Beach Paradise',
                 location: 'Bentota • Hikkaduwa • Unawatuna • Galle',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1565530916216-bdedacdfa657?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1565530916216-bdedacdfa657?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Beach Resorts', 'Water Sports', 'Galle Fort', 'Snorkeling', 'Turtle Hatchery'],
                 price: '$369',
                 duration: '5 Days / 4 Nights',
@@ -390,7 +494,11 @@ export const destinationsData: DestinationsData = {
                 id: 'adam-peak-pilgrimage',
                 title: 'Adam\'s Peak Pilgrimage Trek',
                 location: 'Adam\'s Peak • Hatton',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Sacred Mountain Climb', 'Sunrise Views', 'Pilgrimage Experience', 'Tea Country', 'Spiritual Journey'],
                 price: '$249',
                 duration: '2 Days / 1 Night',
@@ -402,7 +510,11 @@ export const destinationsData: DestinationsData = {
                 id: 'complete-sri-lanka',
                 title: 'Complete Sri Lanka Experience',
                 location: 'Colombo • Sigiriya • Kandy • Ella • Yala • Galle',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1600011689032-8b628b8a8747?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1600011689032-8b628b8a8747?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['9 Nights / 10 Days', 'Culture & Wildlife', 'Scenic Train Journey', 'Beach Relaxation', 'Tea Plantations', 'All Highlights'],
                 price: '$999',
                 duration: '10 Days / 9 Nights',
@@ -441,7 +553,11 @@ export const destinationsData: DestinationsData = {
                 id: 'himalayan-triangle',
                 title: 'Himalayan Triangle Adventure',
                 location: 'Kashmir • Manali • Simla',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Snowy Peaks', 'Dal Lake Shikara', 'Rohtang Pass', 'Mall Road', 'Hill Stations'],
                 price: '$599',
                 duration: '7 Days / 6 Nights',
@@ -453,7 +569,11 @@ export const destinationsData: DestinationsData = {
                 id: 'rajasthan-royal',
                 title: 'Rajasthan Royal Heritage',
                 location: 'Jaipur • Udaipur • Jodhpur • Jaisalmer',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Desert Safari', 'Palace Hotels', 'Camel Rides', 'Blue City', 'Lake Palace'],
                 price: '$699',
                 duration: '8 Days / 7 Nights',
@@ -516,7 +636,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'China',
         tagline: 'Ancient Wonders Meet Modern Marvels!',
         description: 'Explore the Great Wall, imperial palaces, terracotta warriors, modern megacities, and diverse landscapes across the world\'s most populous nation.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Great Wall', 'Forbidden City', 'Terracotta Army', 'Modern Shanghai', 'Li River Cruises'],
         bestTime: 'April to May, September to October',
         currency: 'Chinese Yuan (¥)',
@@ -527,7 +651,11 @@ export const destinationsData: DestinationsData = {
                 id: 'beijing-xian',
                 title: 'Beijing & Xi\'an Imperial Journey',
                 location: 'Beijing • Xi\'an • Great Wall',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1570519801137-4e30e5f86c2c?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1570519801137-4e30e5f86c2c?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Great Wall', 'Forbidden City', 'Terracotta Warriors', 'Temple of Heaven', 'Peking Duck Dinner'],
                 price: '$599',
                 duration: '6 Days / 5 Nights',
@@ -539,7 +667,11 @@ export const destinationsData: DestinationsData = {
                 id: 'shanghai-modern',
                 title: 'Shanghai Modern Metropolis',
                 location: 'Shanghai • Suzhou • Hangzhou',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['The Bund', 'Yu Garden', 'Maglev Train', 'Water Towns', 'West Lake'],
                 price: '$499',
                 duration: '5 Days / 4 Nights',
@@ -551,7 +683,11 @@ export const destinationsData: DestinationsData = {
                 id: 'guilin-yangshuo',
                 title: 'Guilin & Yangshuo Scenic Beauty',
                 location: 'Guilin • Yangshuo • Li River',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1582706675683-b1d18c9a5d6f?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1582706675683-b1d18c9a5d6f?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Li River Cruise', 'Karst Mountains', 'Bamboo Rafting', 'Countryside Cycling', 'Light Show'],
                 price: '$449',
                 duration: '5 Days / 4 Nights',
@@ -563,7 +699,11 @@ export const destinationsData: DestinationsData = {
                 id: 'chengdu-pandas',
                 title: 'Chengdu Pandas & Sichuan Cuisine',
                 location: 'Chengdu • Leshan • Emei Mountain',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1582237673412-23fcb19e1e0e?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1582237673412-23fcb19e1e0e?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Panda Base Visit', 'Giant Buddha', 'Spicy Food Tour', 'Hot Pot Dinner', 'Tea House Culture'],
                 price: '$399',
                 duration: '4 Days / 3 Nights',
@@ -575,7 +715,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hong-kong-macau',
                 title: 'Hong Kong & Macau Getaway',
                 location: 'Hong Kong • Macau',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Victoria Peak', 'Star Ferry', 'Macau Casinos', 'Dim Sum', 'Shopping'],
                 price: '$549',
                 duration: '5 Days / 4 Nights',
@@ -587,7 +731,11 @@ export const destinationsData: DestinationsData = {
                 id: 'china-grand-discovery',
                 title: 'China Grand Discovery',
                 location: 'Beijing • Xi\'an • Guilin • Shanghai • Hong Kong',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['14 Nights / 15 Days', 'Ancient to Modern', 'Great Wall', 'Terracotta Army', 'Li River Cruise', 'Bullet Trains', 'Cultural Shows'],
                 price: '$1,799',
                 duration: '15 Days / 14 Nights',
@@ -624,7 +772,11 @@ export const destinationsData: DestinationsData = {
                 id: 'phuket-beach',
                 title: 'Phuket Beach Paradise',
                 location: 'Phuket • Patong Beach',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Beach Resorts', 'Water Sports', 'Island Hopping'],
                 price: '$329',
                 duration: '5 Days / 4 Nights'
@@ -633,7 +785,11 @@ export const destinationsData: DestinationsData = {
                 id: 'chiang-mai-culture',
                 title: 'Chiang Mai Cultural Journey',
                 location: 'Chiang Mai • Chiang Rai',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Elephant Sanctuary', 'Night Bazaar', 'Mountain Temples'],
                 price: '$349',
                 duration: '5 Days / 4 Nights'
@@ -651,7 +807,11 @@ export const destinationsData: DestinationsData = {
                 id: 'phi-phi-islands',
                 title: 'Phi Phi Islands Adventure',
                 location: 'Phi Phi Islands • Maya Bay',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1537956965359-7573183d1f57?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1537956965359-7573183d1f57?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Snorkeling', 'Beach Parties', 'Island Tours'],
                 price: '$399',
                 duration: '4 Days / 3 Nights'
@@ -660,7 +820,11 @@ export const destinationsData: DestinationsData = {
                 id: 'grand-thailand',
                 title: 'Grand Thailand Experience',
                 location: 'Bangkok • Phuket • Chiang Mai',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['7 Nights / 8 Days', 'All Major Cities', 'Cultural & Beach Mix', 'Thai Cooking Class'],
                 price: '$599',
                 duration: '8 Days / 7 Nights',
@@ -683,7 +847,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hanoi-halong',
                 title: 'Hanoi & Halong Bay Adventure',
                 location: 'Hanoi • Halong Bay',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['City Tours', 'Bay Cruise', 'Cultural Sites'],
                 price: '$299',
                 duration: '4 Days / 3 Nights'
@@ -701,7 +869,11 @@ export const destinationsData: DestinationsData = {
                 id: 'hoi-an-ancient',
                 title: 'Hoi An Ancient Town Experience',
                 location: 'Hoi An • Da Nang',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Ancient Town', 'Lantern Festival', 'Beach Resorts'],
                 price: '$279',
                 duration: '4 Days / 3 Nights'
@@ -710,7 +882,11 @@ export const destinationsData: DestinationsData = {
                 id: 'sapa-trekking',
                 title: 'Sapa Mountain Trekking',
                 location: 'Sapa • Lao Cai',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Mountain Trekking', 'Rice Terraces', 'Local Villages'],
                 price: '$399',
                 duration: '5 Days / 4 Nights'
@@ -719,7 +895,11 @@ export const destinationsData: DestinationsData = {
                 id: 'explore-vietnam',
                 title: 'Explore Iconic Vietnam',
                 location: 'Hanoi • Hoi An • Sapa',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1506038634487-60a6989a72af?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1506038634487-60a6989a72af?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['6 Nights / 7 Days', 'Halong Bay Cruise', 'Mountain Trekking in Sapa'],
                 price: '$499',
                 duration: '7 Days / 6 Nights',
@@ -732,7 +912,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Destination',
         tagline: 'Explore the World!',
         description: 'Discover amazing destinations and create unforgettable memories.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         coordinates: [0, 0],
         packages: [
             {
@@ -747,7 +931,11 @@ export const destinationsData: DestinationsData = {
                 id: 'nature-adventure',
                 title: 'Nature & Adventure',
                 location: 'National Parks',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Hiking', 'Wildlife', 'Scenic Views'],
                 price: '$349'
             },
@@ -765,7 +953,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Dubai',
         tagline: 'The City of the Future!',
         description: 'Experience the height of luxury, futuristic architecture, and desert adventures in Dubai.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Burj Khalifa', 'Desert Safari', 'Palm Jumeirah', 'Luxury Shopping', 'Future Museum'],
         coordinates: [55.2708, 25.2048],
         keywords: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Emirates', 'United Arab Emirates'],
@@ -785,7 +977,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'South Korea',
         tagline: 'Land of Morning Calm',
         description: 'Discover the dynamic blend of ancient palaces, modern pop culture, and delicious cuisine.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Seoul Palaces', 'Street Food', 'Jeju Island', 'K-Pop Culture', 'Shopping'],
         coordinates: [127.7669, 35.9078],
         packages: [
@@ -823,7 +1019,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'United Kingdom',
         tagline: 'History, Culture & Crown Jewels',
         description: 'Explore the historic streets of London, the rugged highlands of Scotland, and the charming countryside of England.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Big Ben', 'Tower of London', 'Scottish Highlands', 'Stonehenge', 'Edinburgh Castle'],
         bestTime: 'May to September',
         currency: 'British Pound (£)',
@@ -835,7 +1035,11 @@ export const destinationsData: DestinationsData = {
                 id: 'london-royal',
                 title: 'Royal London Experience',
                 location: 'London • Windsor',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Buckingham Palace', 'Tower Bridge', 'Windsor Castle'],
                 price: '$699',
                 duration: '5 Days / 4 Nights'
@@ -904,7 +1108,11 @@ export const destinationsData: DestinationsData = {
                 id: 'nyc-lights',
                 title: 'New York City Lights',
                 location: 'New York City',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Broadway Show', 'Empire State Building', 'Central Park'],
                 price: '$899',
                 duration: '5 Days / 4 Nights'
@@ -915,7 +1123,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Australia',
         tagline: 'Land Down Under',
         description: 'Discover the Great Barrier Reef, iconic Opera House, and vast outback adventures.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Opera House', 'Great Barrier Reef', 'Uluru', 'Bondi Beach', 'Kangaroos'],
         bestTime: 'September to November, March to May',
         currency: 'Australian Dollar (A$)',
@@ -927,7 +1139,11 @@ export const destinationsData: DestinationsData = {
                 id: 'sydney-reef',
                 title: 'Sydney & The Reef',
                 location: 'Sydney • Cairns',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1523482580672-01e6f06378c5?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Opera House Tour', 'Reef Snorkeling', 'Harbour Cruise'],
                 price: '$1,199',
                 duration: '8 Days / 7 Nights'
@@ -1007,7 +1223,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Switzerland',
         tagline: 'Playground of Europe',
         description: 'Experience the breathtaking Alps, pristine lakes, and charming villages of Switzerland.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Swiss Alps', 'Matterhorn', 'Lake Geneva', 'Chocolate & Cheese', 'Scenic Trains'],
         bestTime: 'June to September, December to March (Skiing)',
         currency: 'Swiss Franc (CHF)',
@@ -1019,7 +1239,11 @@ export const destinationsData: DestinationsData = {
                 id: 'swiss-alps',
                 title: 'Grand Swiss Alps',
                 location: 'Zurich • Interlaken • Lucerne',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Jungfraujoch', 'Lake Cruise', 'Panoramic Train'],
                 price: '$1,499',
                 duration: '6 Days / 5 Nights'
@@ -1053,7 +1277,11 @@ export const destinationsData: DestinationsData = {
         displayName: 'Spain',
         tagline: 'Passion, Fiesta & Siesta',
         description: 'Experience the vibrant culture, sun-drenched beaches, and historic architecture of Spain.',
+<<<<<<< HEAD
         heroImage: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=1200&auto=format&fit=crop',
+=======
+        heroImage: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         highlights: ['Sagrada Familia', 'Alhambra', 'Ibiza Beaches', 'Tapas', 'Flamenco'],
         bestTime: 'April to June, September to October',
         currency: 'Euro (€)',
@@ -1065,7 +1293,11 @@ export const destinationsData: DestinationsData = {
                 id: 'spanish-fiesta',
                 title: 'Spanish Fiesta',
                 location: 'Madrid • Barcelona • Seville',
+<<<<<<< HEAD
                 image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=1200&auto=format&fit=crop',
+=======
+                image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2670&auto=format&fit=crop',
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 features: ['Sagrada Familia Tour', 'Flamenco Show', 'Tapas Tasting'],
                 price: '$1,099',
                 duration: '8 Days / 7 Nights'

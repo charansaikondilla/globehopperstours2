@@ -14,7 +14,11 @@ const ChatLauncher: React.FC<ChatLauncherProps> = ({ isOpen, toggle }) => {
             onClick={toggle}
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
+<<<<<<< HEAD
             className="relative w-14 sm:w-16 h-14 sm:h-16 bg-blue-600 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center text-white overflow-hidden group flex-shrink-0"
+=======
+            className="relative w-16 h-16 bg-blue-600 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center text-white overflow-hidden group"
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
         >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-700 to-cyan-400 opacity-100" />
 
@@ -27,6 +31,7 @@ const ChatLauncher: React.FC<ChatLauncherProps> = ({ isOpen, toggle }) => {
                 className="relative z-10"
             >
                 {isOpen ? (
+<<<<<<< HEAD
                     <X size={24} className="sm:w-7 sm:h-7" />
                 ) : (
                     <motion.div
@@ -58,6 +63,22 @@ const ChatLauncher: React.FC<ChatLauncherProps> = ({ isOpen, toggle }) => {
                             {/* Rotate -45deg to make Lucide Plane point straight up */}
                             <Plane size={32} className="sm:w-9 sm:h-9 transform -rotate-45 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]" />
                         </motion.div>
+=======
+                    <X size={28} />
+                ) : (
+                    <motion.div
+                        animate={{
+                            y: [0, -4, 0],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        {/* Custom SVG Plane for better visual or just standard icon */}
+                        <Plane size={32} className="transform -rotate-45" />
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                     </motion.div>
                 )}
             </motion.div>

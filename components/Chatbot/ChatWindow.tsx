@@ -138,6 +138,7 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
+<<<<<<< HEAD
             className="w-[90vw] sm:w-[320px] h-[60vh] sm:h-[450px] max-h-[90vh] bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         >
             {/* Header */}
@@ -177,6 +178,28 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-thin scrollbar-thumb-white/10">
+=======
+            className="w-[320px] h-[450px] bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+        >
+            {/* Header */}
+            <div className="p-4 bg-gradient-to-r from-blue-900/50 to-purple-900/50 border-b border-white/10 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-400/30">
+                        <span className="text-xl">👨‍✈️</span>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-white text-sm">Captain GHT TOURS</h3>
+                        <span className="text-xs text-blue-300 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                            Online
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/10">
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                 {messages.map((msg) => (
                     <motion.div
                         key={msg.id}
@@ -185,7 +208,11 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                         <div
+<<<<<<< HEAD
                             className={`max-w-[85%] p-2 sm:p-3 rounded-2xl text-xs sm:text-sm ${msg.sender === 'user'
+=======
+                            className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                 ? 'bg-blue-600 text-white rounded-tr-none'
                                 : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
                                 }`}
@@ -197,12 +224,20 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                 {/* Options */}
                 {messages.length > 0 && messages[messages.length - 1].type === 'options' && messages[messages.length - 1].options && (
+<<<<<<< HEAD
                     <div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
+=======
+                    <div className="flex flex-wrap gap-2 mt-2">
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         {messages[messages.length - 1].options!.map(opt => (
                             <button
                                 key={opt}
                                 onClick={() => handleOptionClick(opt)}
+<<<<<<< HEAD
                                 className="text-[10px] sm:text-xs bg-white/5 hover:bg-blue-600/50 border border-white/10 text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full transition-colors"
+=======
+                                className="text-xs bg-white/5 hover:bg-blue-600/50 border border-white/10 text-white px-3 py-2 rounded-full transition-colors"
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             >
                                 {opt}
                             </button>
@@ -212,8 +247,13 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                 {isTyping && (
                     <div className="flex justify-start">
+<<<<<<< HEAD
                         <div className="bg-white/5 p-2 sm:p-3 rounded-2xl rounded-tl-none border border-white/5">
                             <Loader2 className="w-3 sm:w-4 h-3 sm:h-4 animate-spin text-blue-400" />
+=======
+                        <div className="bg-white/5 p-3 rounded-2xl rounded-tl-none border border-white/5">
+                            <Loader2 className="w-4 h-4 animate-spin text-blue-400" />
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         </div>
                     </div>
                 )}
@@ -221,23 +261,39 @@ const ChatWindow: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </div>
 
             {/* Input */}
+<<<<<<< HEAD
             <div className="p-3 sm:p-4 border-t border-white/10 bg-black/20">
                 <div className="flex items-center gap-2 bg-white/5 rounded-full px-3 sm:px-4 py-2 border border-white/10 focus-within:border-blue-500/50 transition-colors">
+=======
+            <div className="p-4 border-t border-white/10 bg-black/20">
+                <div className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10 focus-within:border-blue-500/50 transition-colors">
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                     <input
                         type="text"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+<<<<<<< HEAD
                         placeholder={step === 'preference' ? "Select above..." : "Type answer..."}
                         className="flex-1 bg-transparent border-none outline-none text-white text-xs sm:text-sm placeholder-gray-500"
+=======
+                        placeholder={step === 'preference' ? "Select an option above..." : "Type your answer..."}
+                        className="flex-1 bg-transparent border-none outline-none text-white text-sm placeholder-gray-500"
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         disabled={step === 'preference' || step === 'done'}
                     />
                     <button
                         onClick={handleSend}
                         disabled={!inputValue.trim() || step === 'preference' || step === 'done'}
+<<<<<<< HEAD
                         className="text-blue-400 hover:text-blue-300 disabled:opacity-50 transition-colors flex-shrink-0"
                     >
                         <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
+=======
+                        className="text-blue-400 hover:text-blue-300 disabled:opacity-50 transition-colors"
+                    >
+                        <Send size={18} />
+>>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                     </button>
                 </div>
             </div>
