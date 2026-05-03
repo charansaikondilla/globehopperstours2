@@ -203,7 +203,7 @@ const HomePage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="relative py-20 sm:py-24 px-4 bg-black pointer-events-auto overflow-hidden">
+                <section className="relative pt-0 pb-20 sm:pb-24 px-4 bg-black pointer-events-auto overflow-hidden -mt-16 sm:-mt-24">
                     {/* Atmospheric Glows */}
                     <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
                     <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
@@ -236,17 +236,15 @@ const HomePage: React.FC = () => {
                             </motion.button>
                         </div>
 
-                        {/* 3-Row Faster Horizontal Scrolling Marquees */}
+                        {/* 3-Row Faster Horizontal Scrolling Marquees - Optimized for Performance */}
                         <div className="space-y-4 sm:space-y-6">
                             {[0, 1, 2].map((rowIndex) => {
-                                // Split pool into rows
                                 const rowItems = rowIndex === 0 
                                     ? destinationPool.slice(0, 5) 
                                     : rowIndex === 1 
                                         ? destinationPool.slice(5, 9) 
                                         : destinationPool.slice(9);
                                 
-                                // Duplicate items for seamless loop
                                 const marqueeItems = [...rowItems, ...rowItems];
                                 const isEven = rowIndex % 2 === 0;
 
@@ -256,9 +254,14 @@ const HomePage: React.FC = () => {
                                             initial={{ x: isEven ? 0 : "-50%" }}
                                             animate={{ x: isEven ? "-50%" : 0 }}
                                             transition={{ 
-                                                duration: 15 + rowIndex * 2, // Varied speeds
+                                                duration: 20 + rowIndex * 5, // Slightly slower for better readability and performance
                                                 repeat: Infinity, 
                                                 ease: "linear" 
+                                            }}
+                                            style={{ 
+                                                willChange: 'transform',
+                                                backfaceVisibility: 'hidden',
+                                                transform: 'translateZ(0)'
                                             }}
                                             className="flex gap-4 w-fit px-2"
                                         >
