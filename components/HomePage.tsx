@@ -22,18 +22,18 @@ const HomePage: React.FC = () => {
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
     const destinationPool = [
-        { key: "japan", name: "Japan", img: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
-        { key: "malaysia", name: "Malaysia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $599", duration: "5 Days" },
-        { key: "united-arab-emirates", name: "Dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $749", duration: "6 Days" },
-        { key: "singapore", name: "Singapore", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", defaultPrice: "From $699", duration: "5 Days" },
-        { key: "thailand", name: "Thailand", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2659&auto=format&fit=crop", defaultPrice: "From $849", duration: "7 Days" },
-        { key: "maldives", name: "Maldives", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2655&auto=format&fit=crop", defaultPrice: "From $1199", duration: "5 Days" },
-        { key: "nepal", name: "Nepal", img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $499", duration: "10 Days" },
-        { key: "sri-lanka", name: "Sri Lanka", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $549", duration: "7 Days" },
-        { key: "india", name: "India", img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2671&auto=format&fit=crop", defaultPrice: "From $399", duration: "8 Days" },
-        { key: "china", name: "China", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $799", duration: "6 Days" },
-        { key: "vietnam", name: "Vietnam", img: "https://images.unsplash.com/photo-1528127220168-9a3114ed41f8?q=80&w=2574&auto=format&fit=crop", defaultPrice: "From $449", duration: "7 Days" },
-        { key: "south-korea", name: "South Korea", img: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2670&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
+        { key: "japan", name: "Japan", img: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
+        { key: "malaysia", name: "Malaysia", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $599", duration: "5 Days" },
+        { key: "united-arab-emirates", name: "Dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $749", duration: "6 Days" },
+        { key: "singapore", name: "Singapore", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $699", duration: "5 Days" },
+        { key: "thailand", name: "Thailand", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $849", duration: "7 Days" },
+        { key: "maldives", name: "Maldives", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $1199", duration: "5 Days" },
+        { key: "nepal", name: "Nepal", img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $499", duration: "10 Days" },
+        { key: "sri-lanka", name: "Sri Lanka", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $549", duration: "7 Days" },
+        { key: "india", name: "India", img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $399", duration: "8 Days" },
+        { key: "china", name: "China", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $799", duration: "6 Days" },
+        { key: "vietnam", name: "Vietnam", img: "https://images.unsplash.com/photo-1528127220168-9a3114ed41f8?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $449", duration: "7 Days" },
+        { key: "south-korea", name: "South Korea", img: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
         { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $1299", duration: "12 Days" }
     ];
 
@@ -252,7 +252,7 @@ const HomePage: React.FC = () => {
                                                         <img 
                                                             src={dest.img} 
                                                             alt={dest.name} 
-                                                            loading="lazy"
+                                                            decoding="async"
                                                             className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                                                         />
                                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
@@ -282,14 +282,15 @@ const HomePage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="relative py-24 sm:py-32 px-4 bg-black pointer-events-auto">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center space-y-4 mb-20">
+                {/* Why GlobeHoppersTours? Section - Optimized for Mobile */}
+                <section id="why-us" className="py-16 sm:py-24 bg-black relative overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+                        <div className="text-center space-y-3 mb-12 sm:mb-16">
                             <motion.h2 
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 15 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter"
+                                className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter"
                             >
                                 Why <span className="text-blue-500">GlobeHoppersTours?</span>
                             </motion.h2>
@@ -297,20 +298,20 @@ const HomePage: React.FC = () => {
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="text-[10px] sm:text-xs font-black text-white/40 uppercase tracking-[0.5em]"
+                                transition={{ delay: 0.1 }}
+                                className="text-[8px] sm:text-[10px] font-black text-white/30 uppercase tracking-[0.4em]"
                             >
                                 Your Intelligent Gateway to World Tours
                             </motion.p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {[
                                 {
                                     title: "Curated Tours, Not Templates",
                                     desc: "120+ handpicked experiences, beyond the beaten path.",
                                     icon: (
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                         </svg>
                                     )
@@ -319,7 +320,7 @@ const HomePage: React.FC = () => {
                                     title: "Smart Planning Assistance",
                                     desc: "AI + expert planners handle everything from flights to local guides.",
                                     icon: (
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                     )
@@ -328,16 +329,16 @@ const HomePage: React.FC = () => {
                                     title: "Human + Tech Support",
                                     desc: "24/7 dedicated help from real people who care.",
                                     icon: (
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                                         </svg>
                                     )
                                 },
                                 {
-                                    title: "Corporate, Group & Honeymoon Specialists",
+                                    title: "Corporate & Group Specialists",
                                     desc: "Tailored itineraries for groups, celebrations, and romantic escapes.",
                                     icon: (
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                         </svg>
                                     )
@@ -345,19 +346,19 @@ const HomePage: React.FC = () => {
                             ].map((feature, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 15 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    className="group p-8 sm:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
+                                    transition={{ duration: 0.5, delay: i * 0.05 }}
+                                    className="group p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/30 transition-all duration-300"
                                 >
-                                    <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform duration-500 border border-blue-500/20 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
                                         {feature.icon}
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-black text-white mt-8 leading-tight group-hover:text-blue-400 transition-colors">
+                                    <h3 className="text-lg sm:text-xl font-black text-white mt-6 leading-tight group-hover:text-blue-400">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-sm sm:text-base text-white/40 mt-4 leading-relaxed font-medium">
+                                    <p className="text-[10px] sm:text-xs text-white/40 mt-3 leading-relaxed font-medium">
                                         {feature.desc}
                                     </p>
                                 </motion.div>

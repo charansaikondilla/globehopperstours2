@@ -94,22 +94,22 @@ const Footer: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                {/* Brand Section */}
-                <div className="mb-16 text-center">
-                    <Link to="/" className="inline-flex items-center space-x-0 group mb-4">
-                        {/* Massive Brand Logo - Zero Gap Integration */}
-                        <div className="w-28 sm:w-44 h-28 sm:h-44 flex items-center justify-center transition-all duration-700 flex-shrink-0">
+                {/* Brand Section - Fixed Mobile Spacing */}
+                <div className="mb-16">
+                    <Link to="/" className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 group mb-6">
+                        {/* Adjusted Brand Logo - No Gap & Clean */}
+                        <div className="w-32 sm:w-56 h-32 sm:h-56 flex items-center justify-center transition-all duration-700 flex-shrink-0">
                             <img src="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" alt="GlobeHoppersTours" className="w-full h-full object-contain scale-110" />
                         </div>
-                        {/* Company Name & Tagline - No Space Between */}
-                        <div className="text-left flex flex-col -space-y-1 sm:-space-y-1.5 -ml-10 sm:-ml-16">
+                        {/* Company Name & Tagline - Clean Alignment */}
+                        <div className="text-center sm:text-left flex flex-col -space-y-1 sm:-space-y-1.5 -ml-4 sm:-ml-8">
                             <h2 className="text-2xl sm:text-4xl font-black tracking-tighter text-white leading-none">
                                 Globe<span className="text-blue-400">HoppersTours</span>
                             </h2>
-                            <span className="text-[10px] sm:text-[14px] font-black uppercase tracking-[0.4em] text-white opacity-100">FROM HOP TO HORIZON</span>
+                            <span className="text-[10px] sm:text-[14px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white opacity-100">FROM HOP TO HORIZON</span>
                         </div>
                     </Link>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-lg font-light leading-relaxed mt-4">
+                    <p className="text-slate-400 max-w-2xl mx-auto sm:mx-0 text-center sm:text-left text-xs sm:text-lg font-light leading-relaxed">
                         Your trusted partner for unforgettable journeys across the globe. From visa-free getaways to premium assisted travel experiences.
                     </p>
                 </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
 import Stars from './Stars';
 import Footer from './Footer';
 
@@ -57,8 +56,6 @@ const Visa: React.FC = () => {
                 <title>Visa Services - GlobeHoppersTours | Hassle-Free Visa Processing</title>
                 <meta name="description" content="Get expert visa assistance for countries worldwide. Fast processing, document guidance, and high approval rates. Let us handle your visa application." />
             </Helmet>
-
-            <Navbar />
 
             <div className="min-h-screen bg-black text-white relative overflow-hidden">
                 <Stars />
