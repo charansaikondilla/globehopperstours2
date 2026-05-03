@@ -37,13 +37,13 @@ const HomePage: React.FC = () => {
         { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $1299", duration: "12 Days" }
     ];
 
-    const [popularDestinations, setPopularDestinations] = useState(destinationPool.slice(0, 6));
+    const [popularDestinations, setPopularDestinations] = useState(destinationPool.slice(0, 10));
 
     React.useEffect(() => {
         const interval = setInterval(() => {
             setPopularDestinations(current => {
                 const newDestinations = [...current];
-                const indexToReplace = Math.floor(Math.random() * 6);
+                const indexToReplace = Math.floor(Math.random() * 10);
                 
                 // Find a destination from the pool that isn't currently visible
                 const currentKeys = new Set(current.map(d => d.key));
@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
                 
                 return newDestinations;
             });
-        }, 3000); // Rotate every 3 seconds
+        }, 2000); // Rotate faster as requested ("fade fastly")
 
         return () => clearInterval(interval);
     }, []);
@@ -203,106 +203,79 @@ const HomePage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="relative py-24 sm:py-32 px-4 bg-black pointer-events-auto overflow-hidden">
-                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-                    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
+                <section className="relative py-20 sm:py-24 px-4 bg-black pointer-events-auto overflow-hidden">
+                    {/* Atmospheric Glows */}
+                    <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
+                    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
 
                     <div className="max-w-7xl mx-auto relative z-10">
-                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-16 sm:mb-20">
+                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
                             <motion.div 
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                                className="space-y-4"
+                                transition={{ duration: 0.6 }}
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="h-px w-12 bg-gradient-to-r from-blue-500 to-transparent" />
-                                    <span className="text-[10px] sm:text-xs font-black text-blue-400 uppercase tracking-[0.4em]">Live Collections</span>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="h-1 w-8 bg-blue-500 rounded-full" />
+                                    <span className="text-[9px] sm:text-[10px] font-black text-blue-400 uppercase tracking-[0.4em]">Global Horizons</span>
                                 </div>
-                                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
-                                    Popular <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">Destinations</span>
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter">
+                                    Popular <span className="text-blue-500">Destinations</span>
                                 </h2>
-                                <p className="text-xs sm:text-sm text-white/40 max-w-md font-medium leading-relaxed">
-                                    A dynamic window into the world's most breathtaking horizons. Always changing, always inspiring.
-                                </p>
                             </motion.div>
                             
                             <motion.button 
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
                                 onClick={() => navigate('/holidays')} 
-                                className="group flex items-center gap-3 text-xs sm:text-sm font-black text-white hover:text-blue-400 transition-all duration-300"
+                                className="group text-[10px] sm:text-xs font-black text-white/60 hover:text-blue-400 transition-all tracking-[0.2em]"
                             >
-                                <span className="relative">
-                                    EXPLORE ALL PACKAGES
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300" />
-                                </span>
-                                <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 group-hover:bg-blue-500/10 transition-all">
-                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
+                                EXPLORE ALL <span className="text-blue-500 group-hover:translate-x-1 inline-block transition-transform ml-1">→</span>
                             </motion.button>
                         </div>
 
-                        {/* Modern Asymmetrical Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 auto-rows-[200px] sm:auto-rows-[250px]">
-                            {popularDestinations.map((dest, i) => {
-                                // Dynamic Grid Mapping for a unique asymmetrical look
-                                // 0: Large, 1: Tall, 2: Regular, 3: Wide, 4: Regular, 5: Regular
-                                const gridStyles = [
-                                    "col-span-2 row-span-2", // 0
-                                    "col-span-1 row-span-2", // 1
-                                    "col-span-1 row-span-1", // 2
-                                    "col-span-2 row-span-1", // 3
-                                    "col-span-1 row-span-1", // 4
-                                    "col-span-1 row-span-1", // 5
-                                ];
-
-                                return (
+                        {/* Compact 3-Row Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 max-h-[600px] overflow-hidden">
+                            <AnimatePresence mode="popLayout">
+                                {popularDestinations.map((dest, i) => (
                                     <motion.div
-                                        key={dest.key}
+                                        key={dest.key + i} // Unique key for AnimatePresence
                                         layout
-                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.9 }}
-                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                        transition={{ duration: 0.3 }}
                                         onClick={() => navigate(`/${dest.key}`)}
-                                        className={`group relative rounded-[2.5rem] overflow-hidden cursor-pointer border border-white/10 bg-white/[0.02] transition-all duration-500 hover:border-blue-500/30 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.2)] ${gridStyles[i % gridStyles.length]}`}
+                                        className="group relative h-[140px] sm:h-[160px] rounded-3xl overflow-hidden cursor-pointer border border-white/5 bg-white/[0.02] hover:border-blue-500/30 transition-all duration-300"
                                     >
                                         <div className="absolute inset-0">
-                                            <motion.img 
-                                                key={dest.img}
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                transition={{ duration: 0.5 }}
+                                            <img 
                                                 src={dest.img} 
                                                 alt={dest.name} 
-                                                className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
+                                                className="absolute inset-0 w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
                                         </div>
 
-                                        <div className="absolute top-4 right-4 z-20">
-                                            <div className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-[8px] font-black uppercase tracking-widest text-white">
+                                        <div className="absolute top-3 right-3 z-20">
+                                            <div className="px-2 py-0.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/5 text-[7px] font-black uppercase tracking-tighter text-blue-400">
                                                 {dest.duration}
                                             </div>
                                         </div>
 
-                                        <div className="absolute inset-x-0 bottom-0 p-6 z-20">
-                                            <h3 className="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors truncate">
+                                        <div className="absolute inset-x-0 bottom-0 p-4 z-20">
+                                            <h3 className="text-xs sm:text-sm font-black text-white truncate mb-0.5 tracking-tight group-hover:text-blue-400 transition-colors">
                                                 {dest.name}
                                             </h3>
-                                            <p className="text-[9px] sm:text-[10px] text-blue-300/80 font-black uppercase tracking-widest">
+                                            <p className="text-[8px] sm:text-[9px] text-white/40 font-bold uppercase tracking-widest leading-none">
                                                 {getDynamicPrice(dest.key, dest.defaultPrice)}
                                             </p>
                                         </div>
-                                        
-                                        <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/[0.03] transition-all duration-500 pointer-events-none" />
                                     </motion.div>
-                                );
-                            })}
+                                ))}
+                            </AnimatePresence>
                         </div>
                     </div>
                 </section>
