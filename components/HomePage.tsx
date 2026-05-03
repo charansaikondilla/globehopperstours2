@@ -236,46 +236,67 @@ const HomePage: React.FC = () => {
                             </motion.button>
                         </div>
 
-                        {/* Compact 3-Row Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 max-h-[600px] overflow-hidden">
-                            <AnimatePresence mode="popLayout">
-                                {popularDestinations.map((dest, i) => (
-                                    <motion.div
-                                        key={dest.key + i} // Unique key for AnimatePresence
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.95 }}
-                                        transition={{ duration: 0.3 }}
-                                        onClick={() => navigate(`/${dest.key}`)}
-                                        className="group relative h-[140px] sm:h-[160px] rounded-3xl overflow-hidden cursor-pointer border border-white/5 bg-white/[0.02] hover:border-blue-500/30 transition-all duration-300"
-                                    >
-                                        <div className="absolute inset-0">
-                                            <img 
-                                                src={dest.img} 
-                                                alt={dest.name} 
-                                                className="absolute inset-0 w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
-                                        </div>
+                        {/* 3-Row Faster Horizontal Scrolling Marquees */}
+                        <div className="space-y-4 sm:space-y-6">
+                            {[0, 1, 2].map((rowIndex) => {
+                                // Split pool into rows
+                                const rowItems = rowIndex === 0 
+                                    ? destinationPool.slice(0, 5) 
+                                    : rowIndex === 1 
+                                        ? destinationPool.slice(5, 9) 
+                                        : destinationPool.slice(9);
+                                
+                                // Duplicate items for seamless loop
+                                const marqueeItems = [...rowItems, ...rowItems];
+                                const isEven = rowIndex % 2 === 0;
 
-                                        <div className="absolute top-3 right-3 z-20">
-                                            <div className="px-2 py-0.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/5 text-[7px] font-black uppercase tracking-tighter text-blue-400">
-                                                {dest.duration}
-                                            </div>
-                                        </div>
+                                return (
+                                    <div key={rowIndex} className="relative w-full overflow-hidden">
+                                        <motion.div 
+                                            initial={{ x: isEven ? 0 : "-50%" }}
+                                            animate={{ x: isEven ? "-50%" : 0 }}
+                                            transition={{ 
+                                                duration: 15 + rowIndex * 2, // Varied speeds
+                                                repeat: Infinity, 
+                                                ease: "linear" 
+                                            }}
+                                            className="flex gap-4 w-fit px-2"
+                                        >
+                                            {marqueeItems.map((dest, i) => (
+                                                <motion.div
+                                                    key={`${dest.key}-${i}`}
+                                                    onClick={() => navigate(`/${dest.key}`)}
+                                                    className="group relative flex-shrink-0 w-[180px] sm:w-[220px] h-[130px] sm:h-[150px] rounded-3xl overflow-hidden cursor-pointer border border-white/5 bg-white/[0.02] hover:border-blue-500/40 transition-all duration-300"
+                                                >
+                                                    <div className="absolute inset-0">
+                                                        <img 
+                                                            src={dest.img} 
+                                                            alt={dest.name} 
+                                                            className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
+                                                    </div>
 
-                                        <div className="absolute inset-x-0 bottom-0 p-4 z-20">
-                                            <h3 className="text-xs sm:text-sm font-black text-white truncate mb-0.5 tracking-tight group-hover:text-blue-400 transition-colors">
-                                                {dest.name}
-                                            </h3>
-                                            <p className="text-[8px] sm:text-[9px] text-white/40 font-bold uppercase tracking-widest leading-none">
-                                                {getDynamicPrice(dest.key, dest.defaultPrice)}
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
+                                                    <div className="absolute top-3 right-3 z-20">
+                                                        <div className="px-2 py-0.5 rounded-lg bg-black/50 backdrop-blur-md border border-white/5 text-[7px] font-black uppercase text-blue-400">
+                                                            {dest.duration}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="absolute inset-x-0 bottom-0 p-4 z-20">
+                                                        <h3 className="text-xs sm:text-sm font-black text-white truncate mb-0.5 tracking-tight group-hover:text-blue-400">
+                                                            {dest.name}
+                                                        </h3>
+                                                        <p className="text-[8px] sm:text-[9px] text-white/40 font-bold uppercase tracking-widest leading-none">
+                                                            {getDynamicPrice(dest.key, dest.defaultPrice)}
+                                                        </p>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </motion.div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
