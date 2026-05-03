@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-=======
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 
 @tailwind base;
 @tailwind components;
@@ -15,13 +11,7 @@
 }
 
 body {
-<<<<<<< HEAD
   font-family: 'Lexend', 'Inter', -apple-system, sans-serif;
-=======
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #000;
@@ -29,7 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-<<<<<<< HEAD
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lexend', sans-serif;
 }
@@ -39,8 +28,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-=======
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 #root {
   width: 100vw;
   min-height: 100vh;
@@ -65,7 +52,6 @@ h1, h2, h3, h4, h5, h6 {
   background: #475569;
 }
 
-<<<<<<< HEAD
 /* Smooth scrolling for carousels */
 .snap-x {
   scroll-behavior: smooth;
@@ -83,8 +69,6 @@ input, textarea, select {
   font-size: 16px;
 }
 
-=======
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 /* Glassmorphism Classes */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
@@ -107,20 +91,16 @@ input, textarea, select {
   animation: shimmer-glow 3s infinite;
 }
 
-<<<<<<< HEAD
 .animate-shimmer-slow {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer-glow 8s infinite;
 }
 
-=======
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 @keyframes shimmer-glow {
   0% {
     background-position: -200% 0;
   }
-<<<<<<< HEAD
 =======
 
 >>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
@@ -148,8 +128,6 @@ input, textarea, select {
   scrollbar-width: none;
 }
 
-=======
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
 /* Premium Popup Styles */
 .glass-popup-overlay {
   position: fixed;

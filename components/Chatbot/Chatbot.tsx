@@ -17,11 +17,7 @@ const Chatbot: React.FC = () => {
     }, []);
 
     return (
-<<<<<<< HEAD
         <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3 sm:gap-4">
-=======
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
             <AnimatePresence>
                 {isOpen && (
                     <ChatWindow onClose={() => setIsOpen(false)} />

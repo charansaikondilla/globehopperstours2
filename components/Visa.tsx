@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 =======
 import Navbar from './Navbar';
 >>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
@@ -62,10 +61,6 @@ const Visa: React.FC = () => {
             </Helmet>
 
 <<<<<<< HEAD
-=======
-            <Navbar />
-
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
             <div className="min-h-screen bg-black text-white relative overflow-hidden">
                 <Stars />
 

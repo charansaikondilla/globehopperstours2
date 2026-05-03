@@ -94,7 +94,6 @@ const Footer: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-<<<<<<< HEAD
                 {/* Brand Section - Fixed Mobile Spacing */}
                 <div className="mb-16">
                     <Link to="/" className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 group mb-6">
@@ -111,30 +110,11 @@ const Footer: React.FC = () => {
                         </div>
                     </Link>
                     <p className="text-slate-400 max-w-2xl mx-auto sm:mx-0 text-center sm:text-left text-xs sm:text-lg font-light leading-relaxed">
-=======
-                {/* Brand Section */}
-                <div className="mb-16 text-center">
-                    <Link to="/" className="inline-flex items-center space-x-3 group mb-4">
-                        <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-all duration-700 shadow-2xl shadow-blue-500/40">
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <div className="text-left">
-                            <h2 className="text-3xl font-black tracking-tighter text-white leading-none">
-                                Globe<span className="text-blue-500">HoppersTours</span>
-                            </h2>
-                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 opacity-60">from hop to horizon</span>
-                        </div>
-                    </Link>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         Your trusted partner for unforgettable journeys across the globe. From visa-free getaways to premium assisted travel experiences.
                     </p>
                 </div>
 
                 {/* Footer Links Grid */}
-<<<<<<< HEAD
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-16">
                     {/* Travel Section */}
                     <div>
@@ -143,25 +123,11 @@ const Footer: React.FC = () => {
                             <span>{footerSections.travel.title}</span>
                         </h3>
                         <ul className="space-y-2 sm:space-y-3">
-=======
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                    {/* Travel Section */}
-                    <div>
-                        <h3 className="text-xl font-black mb-6 text-white flex items-center gap-2">
-                            <span className="text-2xl">{footerSections.travel.icon}</span>
-                            <span>{footerSections.travel.title}</span>
-                        </h3>
-                        <ul className="space-y-3">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             {footerSections.travel.links.map((link, idx) => (
                                 <li key={idx}>
                                     <Link
                                         to={link.path}
-<<<<<<< HEAD
                                         className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium flex items-center gap-2 group"
-=======
-                                        className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-medium flex items-center gap-2 group"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                     >
                                         <span className="w-1 h-1 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
                                         {link.name}
@@ -173,28 +139,16 @@ const Footer: React.FC = () => {
 
                     {/* Travel Benefits Section */}
                     <div>
-<<<<<<< HEAD
                         <h3 className="text-base sm:text-lg md:text-xl font-black mb-4 sm:mb-6 text-white flex items-center gap-2">
                             <span className="text-xl sm:text-2xl">{footerSections.benefits.icon}</span>
                             <span>{footerSections.benefits.title}</span>
                         </h3>
                         <ul className="space-y-2 sm:space-y-3">
-=======
-                        <h3 className="text-xl font-black mb-6 text-white flex items-center gap-2">
-                            <span className="text-2xl">{footerSections.benefits.icon}</span>
-                            <span>{footerSections.benefits.title}</span>
-                        </h3>
-                        <ul className="space-y-3">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             {footerSections.benefits.links.map((link, idx) => (
                                 <li key={idx}>
                                     <Link
                                         to={link.path}
-<<<<<<< HEAD
                                         className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium flex items-center gap-2 group"
-=======
-                                        className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-medium flex items-center gap-2 group"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                     >
                                         <span className="w-1 h-1 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
                                         {link.name}
@@ -206,28 +160,16 @@ const Footer: React.FC = () => {
 
                     {/* Company Section */}
                     <div>
-<<<<<<< HEAD
                         <h3 className="text-base sm:text-lg md:text-xl font-black mb-4 sm:mb-6 text-white flex items-center gap-2">
                             <span className="text-xl sm:text-2xl">{footerSections.company.icon}</span>
                             <span>{footerSections.company.title}</span>
                         </h3>
                         <ul className="space-y-2 sm:space-y-3">
-=======
-                        <h3 className="text-xl font-black mb-6 text-white flex items-center gap-2">
-                            <span className="text-2xl">{footerSections.company.icon}</span>
-                            <span>{footerSections.company.title}</span>
-                        </h3>
-                        <ul className="space-y-3">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             {footerSections.company.links.map((link, idx) => (
                                 <li key={idx}>
                                     <Link
                                         to={link.path}
-<<<<<<< HEAD
                                         className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium flex items-center gap-2 group"
-=======
-                                        className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-medium flex items-center gap-2 group"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                     >
                                         <span className="w-1 h-1 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
                                         {link.name}
@@ -239,28 +181,16 @@ const Footer: React.FC = () => {
 
                     {/* Support Section */}
                     <div>
-<<<<<<< HEAD
                         <h3 className="text-base sm:text-lg md:text-xl font-black mb-4 sm:mb-6 text-white flex items-center gap-2">
                             <span className="text-xl sm:text-2xl">{footerSections.support.icon}</span>
                             <span>{footerSections.support.title}</span>
                         </h3>
                         <ul className="space-y-2 sm:space-y-3">
-=======
-                        <h3 className="text-xl font-black mb-6 text-white flex items-center gap-2">
-                            <span className="text-2xl">{footerSections.support.icon}</span>
-                            <span>{footerSections.support.title}</span>
-                        </h3>
-                        <ul className="space-y-3">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             {footerSections.support.links.map((link, idx) => (
                                 <li key={idx}>
                                     <Link
                                         to={link.path}
-<<<<<<< HEAD
                                         className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium flex items-center gap-2 group"
-=======
-                                        className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-medium flex items-center gap-2 group"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                                     >
                                         <span className="w-1 h-1 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
                                         {link.name}
@@ -272,7 +202,6 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Newsletter Section */}
-<<<<<<< HEAD
                 <div className="glass-card rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 mb-16 text-center relative overflow-hidden">
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-white">
                         Stay Updated with Exclusive Travel Deals
@@ -286,41 +215,18 @@ const Footer: React.FC = () => {
                         </div>
                     )}
                     <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-xl mx-auto relative z-10">
-=======
-                <div className="glass-card rounded-[2.5rem] p-8 md:p-12 mb-16 text-center relative overflow-hidden">
-                    <h3 className="text-2xl md:text-3xl font-black mb-4 text-white">
-                        Stay Updated with Exclusive Travel Deals
-                    </h3>
-                    <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
-                        Subscribe to our newsletter and get the best holiday packages, seasonal offers, and travel tips delivered to your inbox.
-                    </p>
-                    {status === 'success' && (
-                        <div className="mb-4 text-green-400 font-bold bg-green-900/20 py-2 px-4 rounded-xl inline-block">
-                            Successful and team will contact you shortly!
-                        </div>
-                    )}
-                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto relative z-10">
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email address"
-<<<<<<< HEAD
                             className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
-=======
-                            className="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                             disabled={status === 'submitting'}
                         />
                         <button
                             type="submit"
                             disabled={status === 'submitting'}
-<<<<<<< HEAD
                             className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-black rounded-lg sm:rounded-2xl hover:bg-blue-700 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base whitespace-nowrap"
-=======
-                            className="px-8 py-4 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
->>>>>>> add7a8b50360fa3839f9bca695737f51735055d6
                         >
                             {status === 'submitting' ? '...' : 'Subscribe'}
                         </button>
