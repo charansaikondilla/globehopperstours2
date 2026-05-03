@@ -37,29 +37,7 @@ const HomePage: React.FC = () => {
         { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $1299", duration: "12 Days" }
     ];
 
-    const [popularDestinations, setPopularDestinations] = useState(destinationPool.slice(0, 10));
-
-    React.useEffect(() => {
-        const interval = setInterval(() => {
-            setPopularDestinations(current => {
-                const newDestinations = [...current];
-                const indexToReplace = Math.floor(Math.random() * 10);
-                
-                // Find a destination from the pool that isn't currently visible
-                const currentKeys = new Set(current.map(d => d.key));
-                const availablePool = destinationPool.filter(d => !currentKeys.has(d.key));
-                
-                if (availablePool.length > 0) {
-                    const randomReplacement = availablePool[Math.floor(Math.random() * availablePool.length)];
-                    newDestinations[indexToReplace] = randomReplacement;
-                }
-                
-                return newDestinations;
-            });
-        }, 2000); // Rotate faster as requested ("fade fastly")
-
-        return () => clearInterval(interval);
-    }, []);
+    const [popularDestinations] = useState(destinationPool);
 
     const handleSearch = (query: string) => {
         setSelectedDestination(null);
@@ -203,7 +181,7 @@ const HomePage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="relative pt-0 pb-20 sm:pb-24 px-4 bg-black pointer-events-auto overflow-hidden -mt-16 sm:-mt-24">
+                <section className="relative py-20 sm:py-24 px-4 bg-black pointer-events-auto overflow-hidden">
                     {/* Atmospheric Glows */}
                     <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
                     <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
@@ -239,12 +217,14 @@ const HomePage: React.FC = () => {
                         {/* 3-Row Faster Horizontal Scrolling Marquees - Optimized for Performance */}
                         <div className="space-y-4 sm:space-y-6">
                             {[0, 1, 2].map((rowIndex) => {
+                                // Split pool into rows using the simplified state
                                 const rowItems = rowIndex === 0 
-                                    ? destinationPool.slice(0, 5) 
+                                    ? popularDestinations.slice(0, 4) 
                                     : rowIndex === 1 
-                                        ? destinationPool.slice(5, 9) 
-                                        : destinationPool.slice(9);
+                                        ? popularDestinations.slice(4, 8) 
+                                        : popularDestinations.slice(8);
                                 
+                                // Duplicate items for seamless loop
                                 const marqueeItems = [...rowItems, ...rowItems];
                                 const isEven = rowIndex % 2 === 0;
 
@@ -254,15 +234,11 @@ const HomePage: React.FC = () => {
                                             initial={{ x: isEven ? 0 : "-50%" }}
                                             animate={{ x: isEven ? "-50%" : 0 }}
                                             transition={{ 
-                                                duration: 20 + rowIndex * 5, // Slightly slower for better readability and performance
+                                                duration: 20 + rowIndex * 5, // Slightly slower for better readability/perf
                                                 repeat: Infinity, 
                                                 ease: "linear" 
                                             }}
-                                            style={{ 
-                                                willChange: 'transform',
-                                                backfaceVisibility: 'hidden',
-                                                transform: 'translateZ(0)'
-                                            }}
+                                            style={{ willChange: "transform" }}
                                             className="flex gap-4 w-fit px-2"
                                         >
                                             {marqueeItems.map((dest, i) => (
@@ -270,11 +246,13 @@ const HomePage: React.FC = () => {
                                                     key={`${dest.key}-${i}`}
                                                     onClick={() => navigate(`/${dest.key}`)}
                                                     className="group relative flex-shrink-0 w-[180px] sm:w-[220px] h-[130px] sm:h-[150px] rounded-3xl overflow-hidden cursor-pointer border border-white/5 bg-white/[0.02] hover:border-blue-500/40 transition-all duration-300"
+                                                    style={{ transform: "translateZ(0)" }} // Hardware acceleration
                                                 >
                                                     <div className="absolute inset-0">
                                                         <img 
                                                             src={dest.img} 
                                                             alt={dest.name} 
+                                                            loading="lazy"
                                                             className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                                                         />
                                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
