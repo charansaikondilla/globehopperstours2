@@ -3,38 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlobeHoppersTours</title>
-<link rel="icon" type="image/png" href="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" />
-<link rel="shortcut icon" type="image/png" href="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" />
+  <title>GlobeHoppersTours - Premium Travel Experiences</title>
+  <meta name="description" content="Discover the world with GlobeHoppersTours. Premium holiday packages, visa services, flight booking, and travel insurance." />
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" />
+  <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" />
 
-<!-- GitHub Pages SPA Redirect Script -->
-<script>
-  (function () {
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect !== location.href) {
-      history.replaceState(null, null, redirect);
+  <!-- GitHub Pages SPA Redirect Handler -->
+  <script>
+    (function () {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
-  })();
-</script>
-
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://d3js.org/topojson.v3.min.js"></script>
-<style>
-  body {
-    background-color: #000;
-    color: #fff;
-    overflow-x: hidden;
-  }
-</style>
-<link rel="stylesheet" href="./index.css">
+  </style>
 </head>
 
 <body>
   <div id="tooltip"></div>
   <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+  <script type="module" src="./index.tsx"></script>
 </body>
 
-</html>
+</html>
