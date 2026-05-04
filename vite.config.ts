@@ -2,11 +2,9 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Use environment variable to switch base for local vs GitHub Pages
-const isProduction = process.env.NODE_ENV === 'production';
-
 export default defineConfig({
-  base: isProduction ? '/globehopperstours2/' : '/',
+  // Hard-coded base for GitHub Pages deployment at /globehopperstours2/
+  base: '/globehopperstours2/',
   publicDir: 'public',
   server: {
     port: 3000,

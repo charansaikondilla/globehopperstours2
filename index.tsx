@@ -4,13 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
-// Use the correct basename for GitHub Pages deployment
-const basename = import.meta.env.PROD ? '/globehopperstours2' : '/';
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename="/globehopperstours2">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
 );
+
