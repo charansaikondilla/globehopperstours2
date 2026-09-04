@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Stars from './Stars';
 import Footer from './Footer';
+import { reserveWhatsAppTab, navigateWhatsAppTab } from '../utils/whatsapp';
 
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -67,6 +68,10 @@ const Contact: React.FC = () => {
             return;
         }
 
+        // Reserve the WhatsApp tab now, synchronously, so it isn't blocked
+        // as a "popup" once we navigate it after the async submit below.
+        const whatsappTab = reserveWhatsAppTab();
+
         setIsSubmitting(true);
 
         try {
@@ -85,13 +90,25 @@ const Contact: React.FC = () => {
             });
 
             setIsSubmitted(true);
-            setFormData({ name: '', email: '', phone: '', country: '', message: '' });
 
             // Reset success message after 5 seconds
             setTimeout(() => setIsSubmitted(false), 5000);
-            alert("Successful and team will contact you shortly!");
+            alert("Successful and team will contact you shortly! Redirecting you to WhatsApp to continue the conversation.");
+
+            // Hand off to WhatsApp with their enquiry details pre-filled
+            navigateWhatsAppTab(
+                whatsappTab,
+                `Hi, I'm ${formData.name}. I just sent an enquiry from your website:\n\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Country: ${formData.country}\n` +
+                `Message: ${formData.message}`
+            );
+
+            setFormData({ name: '', email: '', phone: '', country: '', message: '' });
         } catch (error) {
             console.error('Error submitting form:', error);
+            whatsappTab?.close();
             alert('Something went wrong. Please try again later.');
         } finally {
             setIsSubmitting(false);
@@ -254,8 +271,8 @@ const Contact: React.FC = () => {
                         <div className="space-y-6">
                             {[
                                 { icon: '📧', title: 'Email Us', info: ['info@globalhopperstours.com', 'support@globalhopperstours.com'], color: 'text-blue-400' },
-                                { icon: '📞', title: 'Call Us', info: ['+1 (800) 123-4567', '+1 (800) 765-4321'], note: 'Mon-Fri: 9AM - 6PM EST', color: 'text-indigo-400' },
-                                { icon: '📍', title: 'Visit Us', info: ['123 Travel Avenue', 'New York, NY 10001', 'United States'], color: 'text-cyan-400' },
+                                { icon: '📞', title: 'Call Us', info: ['+91 9676113883', '+91 7995597570'], note: 'Mon-Fri: 9AM - 6PM EST', color: 'text-indigo-400' },
+                                { icon: '📍', title: 'Visit Us', info: ['5-5-8/7, Sangeet Nagar', 'Kukatpally, Hyderabad', 'Telangana 500072'], color: 'text-cyan-400' },
                                 { icon: '⏰', title: 'Business Hours', info: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 4:00 PM', 'Sunday: Closed'], color: 'text-blue-400' }
                             ].map((card, idx) => (
                                 <div key={idx} className="glass-card rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 group border-l-4 border-l-transparent hover:border-l-blue-500">

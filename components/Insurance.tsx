@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Stars from './Stars';
 import Footer from './Footer';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 const Insurance: React.FC = () => {
     return (
@@ -46,6 +47,7 @@ const Insurance: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <WhatsAppBookBar />
             <Footer />
         </>
     );

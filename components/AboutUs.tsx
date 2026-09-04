@@ -3,6 +3,16 @@ import { Helmet } from 'react-helmet-async';
 import Stars from './Stars';
 import Footer from './Footer';
 
+// Matches the hard-coded GitHub Pages base in vite.config.ts
+const ASSET_BASE = '/globehopperstours2/';
+
+const teamMembers = [
+    { name: 'Vyshalini', role: 'Founder', photo: `${ASSET_BASE}team/vyshalini.jpg` },
+    { name: 'Vaishanavi', role: 'Co-Founder', photo: `${ASSET_BASE}team/vaishanavi.jpg` },
+    { name: 'Pavan Sai Kondilla', role: 'Managing Director', photo: `${ASSET_BASE}team/pavan.jpg` },
+    { name: 'Charan Sai Kondilla', role: 'COO', photo: `${ASSET_BASE}team/charan.jpg` },
+];
+
 const AboutUs: React.FC = () => {
     return (
         <>
@@ -48,6 +58,40 @@ const AboutUs: React.FC = () => {
                         </div>
                     </div>
 
+                    {/* Team Section - Compacted */}
+                    <div className="mb-16 md:mb-20">
+                        <div className="text-center mb-10 md:mb-14">
+                            <div className="flex items-center justify-center gap-2 mb-3">
+                                <div className="h-1 w-8 bg-blue-500 rounded-full" />
+                                <span className="text-[9px] sm:text-[10px] font-black text-blue-400 uppercase tracking-[0.4em]">The People Behind It</span>
+                                <div className="h-1 w-8 bg-blue-500 rounded-full" />
+                            </div>
+                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter italic">
+                                Meet Our <span className="text-blue-500">Team</span>
+                            </h2>
+                        </div>
+
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                            {teamMembers.map((member, idx) => (
+                                <div key={idx} className="group relative">
+                                    <div className="relative rounded-[1.5rem] sm:rounded-[1.75rem] overflow-hidden bg-black border border-white/10 aspect-[3/4] shadow-2xl group-hover:border-blue-500/40 transition-all duration-500">
+                                        <img
+                                            src={member.photo}
+                                            alt={member.name}
+                                            loading="lazy"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/5 to-transparent" />
+                                    </div>
+                                    <div className="relative -mt-8 sm:-mt-10 mx-3 sm:mx-4 glass-card rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-xl border border-white/10 group-hover:border-blue-500/30 transition-all duration-500">
+                                        <h3 className="text-white font-black text-xs sm:text-base tracking-tight truncate">{member.name}</h3>
+                                        <p className="text-blue-400 text-[8px] sm:text-[10px] font-black uppercase tracking-widest mt-0.5">{member.role}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     {/* Mission & Values - Compacted */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-20">
                         {[
@@ -81,6 +125,26 @@ const AboutUs: React.FC = () => {
                                     {stat.number}
                                 </div>
                                 <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Reach Us Section - Compacted */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 md:mb-20">
+                        {[
+                            { icon: '📍', title: 'Visit Us', info: ['5-5-8/7, Sangeet Nagar', 'Kukatpally, Hyderabad', 'Telangana 500072'], color: 'text-cyan-400' },
+                            { icon: '📞', title: 'Call Us', info: ['+91 9676113883', '+91 7995597570'], color: 'text-indigo-400' },
+                        ].map((card, idx) => (
+                            <div key={idx} className="glass-card rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 group border-l-4 border-l-transparent hover:border-l-blue-500">
+                                <div className="flex items-start">
+                                    <div className="text-5xl mr-6 group-hover:scale-110 transition-transform duration-500 transform group-hover:rotate-6">{card.icon}</div>
+                                    <div>
+                                        <h3 className={`text-xl font-black mb-3 ${card.color} tracking-tight uppercase`}>{card.title}</h3>
+                                        {card.info.map((line, i) => (
+                                            <p key={i} className="text-slate-300 font-light leading-relaxed">{line}</p>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>

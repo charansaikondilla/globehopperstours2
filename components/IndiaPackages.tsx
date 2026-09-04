@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Stars from './Stars';
 import Footer from './Footer';
+import WhatsAppBookBar from './WhatsAppBookBar';
 import { Link } from 'react-router-dom';
 
 const IndiaPackages: React.FC = () => {
@@ -154,6 +155,7 @@ const IndiaPackages: React.FC = () => {
 
                 </div>
             </div>
+            <WhatsAppBookBar context="India Packages" />
             <Footer />
         </>
     );

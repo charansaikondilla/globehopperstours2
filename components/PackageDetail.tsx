@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { TravelPackage, CountryData } from '../data/destinations'; // Keep interface imports
 import { useDestinations } from '../context/DestinationsContext';
+import { reserveWhatsAppTab, navigateWhatsAppTab } from '../utils/whatsapp';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 
 const PackageDetail: React.FC = () => {
@@ -96,7 +98,7 @@ const PackageDetail: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className={`relative z-10 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div className={`relative z-10 transition-opacity duration-700 pb-24 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
 
                     {/* Premium Navbar - Handled globally in App.tsx */}
 
@@ -233,48 +235,26 @@ const PackageDetail: React.FC = () => {
                                     </div>
                                 )}
 
-                                {/* Inclusions & Exclusions - Compacted */}
-                                {(packageData.included || packageData.excluded) && (
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        {/* Included */}
-                                        {packageData.included && (
-                                            <div className="bg-blue-600/10 backdrop-blur-md border border-blue-500/20 rounded-[2rem] p-6 md:p-8">
-                                                <h3 className="text-xl font-black text-white mb-5 flex items-center tracking-tighter italic">
-                                                    <svg className="w-5 h-5 mr-2.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-                                                    Included
-                                                </h3>
-                                                <ul className="space-y-3">
-                                                    {packageData.included.map((item, idx) => (
-                                                        <li key={idx} className="text-slate-300 flex items-start text-[11px] font-medium tracking-wide">
-                                                            <span className="text-blue-400 mr-2.5 font-black">✓</span>
-                                                            <span>{item}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-
-                                        {/* Excluded */}
-                                        {packageData.excluded && (
-                                            <div className="bg-slate-900/40 backdrop-blur-md border border-white/5 rounded-[2rem] p-6 md:p-8">
-                                                <h3 className="text-xl font-black text-white mb-5 flex items-center tracking-tighter italic">
-                                                    <svg className="w-5 h-5 mr-2.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-                                                    Not Included
-                                                </h3>
-                                                <ul className="space-y-3">
-                                                    {packageData.excluded.map((item, idx) => (
-                                                        <li key={idx} className="text-slate-400 flex items-start text-[11px] font-medium italic opacity-70">
-                                                            <span className="text-slate-500 mr-2.5">✗</span>
-                                                            <span>{item}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
+                                {/* Inclusions - Compacted */}
+                                {packageData.included && (
+                                    <div className="bg-blue-600/10 backdrop-blur-md border border-blue-500/20 rounded-[2rem] p-6 md:p-8">
+                                        <h3 className="text-xl font-black text-white mb-5 flex items-center tracking-tighter italic">
+                                            <svg className="w-5 h-5 mr-2.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Included
+                                        </h3>
+                                        <ul className="space-y-3">
+                                            {packageData.included.map((item, idx) => (
+                                                <li key={idx} className="text-slate-300 flex items-start text-[11px] font-medium tracking-wide">
+                                                    <span className="text-blue-400 mr-2.5 font-black">✓</span>
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <p className="mt-6 pt-4 border-t border-white/10 text-[9px] text-slate-500 font-medium tracking-wide italic">
+                                            *Terms &amp; conditions apply.
+                                        </p>
                                     </div>
                                 )}
                             </div>
@@ -327,20 +307,37 @@ const PackageDetail: React.FC = () => {
                                         btn.disabled = true;
                                         btn.innerHTML = 'Booking...';
 
+                                        const bookingName = (formData.get('name') as string) || '';
+                                        const bookingMobile = (formData.get('mobile') as string) || '';
+                                        const bookingDate = (formData.get('date') as string) || '';
+
+                                        // Reserve the WhatsApp tab now, synchronously, so it isn't
+                                        // blocked as a "popup" once we navigate it after the fetch below.
+                                        const whatsappTab = reserveWhatsAppTab();
+
                                         fetch(SCRIPT_URL, {
                                             method: 'POST',
                                             body: formData,
                                             mode: 'no-cors'
                                         }).then(() => {
-                                            alert('Successful and team will contact you shortly!');
+                                            alert('Successful and team will contact you shortly! Redirecting you to WhatsApp to continue the conversation.');
                                             form.reset();
                                             btn.innerHTML = 'Booked Successfully';
                                             setTimeout(() => {
                                                 btn.disabled = false;
                                                 btn.innerHTML = originalText;
                                             }, 3000);
+
+                                            // Hand off to WhatsApp with their booking details pre-filled
+                                            navigateWhatsAppTab(
+                                                whatsappTab,
+                                                `Hi, I'm ${bookingName}. I'd like to book "${packageData.title}" (${countryData.displayName}).\n\n` +
+                                                `Mobile: ${bookingMobile}\n` +
+                                                `Preferred Date: ${bookingDate}`
+                                            );
                                         }).catch(err => {
                                             console.error('Error booking:', err);
+                                            whatsappTab?.close();
                                             alert('Failed to send booking request. Please try again.');
                                             btn.disabled = false;
                                             btn.innerHTML = originalText;
@@ -379,7 +376,7 @@ const PackageDetail: React.FC = () => {
                                             type="submit"
                                             className="group relative w-full py-4 bg-white text-blue-700 font-black rounded-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-lg text-sm uppercase tracking-widest disabled:opacity-70"
                                         >
-                                            Book Expedition
+                                            Book Now
                                         </button>
                                     </form>
 
@@ -416,6 +413,8 @@ const PackageDetail: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                <WhatsAppBookBar context={packageData.title} />
             </div>
         </>
     );

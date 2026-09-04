@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ChatLauncher from './ChatLauncher';
 import ChatWindow from './ChatWindow';
+import WhatsAppFloatingButton from './WhatsAppFloatingButton';
 import { AnimatePresence } from 'framer-motion';
 
 const Chatbot: React.FC = () => {
@@ -23,6 +24,7 @@ const Chatbot: React.FC = () => {
                     <ChatWindow onClose={() => setIsOpen(false)} />
                 )}
             </AnimatePresence>
+            <WhatsAppFloatingButton />
             <ChatLauncher isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
         </div>
     );

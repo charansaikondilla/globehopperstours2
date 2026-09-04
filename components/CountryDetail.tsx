@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useDestinations } from '../context/DestinationsContext';
 import Navbar from './Navbar';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 const CountryDetail: React.FC = () => {
     const { country } = useParams<{ country: string }>();
@@ -98,7 +99,7 @@ const CountryDetail: React.FC = () => {
                 <div className="absolute inset-0 bg-black/50 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
 
                 {/* Content Container */}
-                <div className="relative z-10 min-h-screen flex flex-col font-sans text-white">
+                <div className="relative z-10 min-h-screen flex flex-col font-sans text-white pb-24">
 
                     {/* Premium Navbar - Handled globally in App.tsx */}
                     <div className="h-24 sm:h-28" />
@@ -314,6 +315,8 @@ const CountryDetail: React.FC = () => {
                     </button>
 
                 </div>
+
+                <WhatsAppBookBar context={countryName} />
             </div>
         </>
     );

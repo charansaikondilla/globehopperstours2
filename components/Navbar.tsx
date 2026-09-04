@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
+            setIsScrolled(window.scrollY > 40);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'Holidays', path: '/holidays' },
-        { name: 'India', path: '/india-packages' },
+        { name: 'India', path: '/india' },
         { name: 'Visa', path: '/visa' },
         { name: 'Insurance', path: '/insurance' },
         { name: 'About', path: '/about' },
@@ -83,36 +83,36 @@ const Navbar: React.FC = () => {
                 }
             `}</style>
 
-            <nav 
-                className={`fixed top-0 w-full z-[100] transition-all duration-700 ${
+            <nav
+                className={`fixed top-0 w-full z-[100] transition-all duration-500 ease-out backdrop-saturate-150 py-2 ${
                     isScrolled || isMenuOpen
-                        ? 'bg-black backdrop-blur-2xl border-b border-white/10 py-1 shadow-2xl' 
-                        : 'bg-black lg:bg-transparent py-2 sm:py-3'
+                        ? 'bg-black/30 backdrop-blur-2xl border-b border-white/10 shadow-2xl'
+                        : 'bg-black/10 backdrop-blur-sm border-b border-transparent shadow-none'
                 }`}
             >
                 <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
                     <div className="flex items-center justify-between">
-                        {/* Brand Logo - Bigger & Clean */}
-                        <Link to="/" className="flex items-center space-x-0 group relative">
-                            <div className="relative w-16 sm:w-24 h-16 sm:h-24 flex items-center justify-center transition-all duration-700 flex-shrink-0">
+                        {/* Brand Logo - Compact & Clean */}
+                        <Link to="/" className="flex items-center gap-2.5 group relative">
+                            <div className="relative w-11 h-11 sm:w-14 sm:h-14 flex items-center justify-center transition-all duration-500 flex-shrink-0">
                                 <img src="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" alt="GlobeHoppersTours" className="w-full h-full object-contain scale-110" />
                             </div>
-                            <div className="flex flex-col -space-y-1 sm:-space-y-2 -ml-6 sm:-ml-8">
-                                <h1 className="text-lg sm:text-2xl font-black tracking-tighter text-white leading-none">
+                            <div className="flex flex-col -space-y-0.5">
+                                <h1 className="text-sm sm:text-lg font-black tracking-tighter text-white leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
                                     Globe<span className="text-blue-400">HoppersTours</span>
                                 </h1>
-                                <span className="text-[8px] sm:text-[12px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white opacity-100">FROM HOP TO HORIZON</span>
+                                <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-[0.15em] sm:tracking-[0.25em] text-white/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">FROM HOP TO HORIZON</span>
                             </div>
                         </Link>
 
                         {/* Desktop Navigation - Premium Typography */}
-                        <div className="hidden lg:flex items-center space-x-10">
+                        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
                             {navItems.map((item) => (
                                 <Link
                                     key={item.name}
                                     to={item.path}
-                                    className={`text-[9px] font-black tracking-[0.3em] uppercase transition-all duration-500 hover:text-blue-400 ${
-                                        location.pathname === item.path ? 'text-blue-400' : 'text-white/60'
+                                    className={`text-[11px] xl:text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 hover:text-blue-400 whitespace-nowrap drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] ${
+                                        location.pathname === item.path ? 'text-blue-400' : 'text-white/90'
                                     }`}
                                 >
                                     {item.name}
@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
 
                             <Link
                                 to="/contact"
-                                className="px-10 py-3 bg-blue-600 text-white font-black rounded-full hover:bg-blue-500 hover:scale-105 active:scale-95 transition-all duration-500 shadow-xl shadow-blue-500/40 uppercase tracking-[0.2em] text-[10px] border border-blue-400/20"
+                                className="px-6 xl:px-8 py-3 bg-blue-600 text-white font-black rounded-full hover:bg-blue-500 hover:scale-105 active:scale-95 transition-all duration-500 shadow-xl shadow-blue-500/40 uppercase tracking-[0.2em] text-[11px] xl:text-xs border border-blue-400/20 whitespace-nowrap"
                             >
                                 Get Started
                             </Link>

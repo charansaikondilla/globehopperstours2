@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
         { key: "sri-lanka", name: "Sri Lanka", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $549", duration: "7 Days" },
         { key: "india", name: "India", img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $399", duration: "8 Days" },
         { key: "china", name: "China", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $799", duration: "6 Days" },
-        { key: "vietnam", name: "Vietnam", img: "https://images.unsplash.com/photo-1528127220168-9a3114ed41f8?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $449", duration: "7 Days" },
+        { key: "vietnam", name: "Vietnam", img: "https://ik.imagekit.io/travalot/development/resources/attachments/2026/0/12/e6153f00-efb0-11f0-a82f-c5cb6fcc02f2.jpg?tr=f-webp:q-85", defaultPrice: "From $449", duration: "7 Days" },
         { key: "south-korea", name: "South Korea", img: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=800&auto=format&fit=crop", defaultPrice: "From $899", duration: "6 Days" },
         { key: "europe", name: "Europe", img: "https://i.ibb.co/CpDFwYLv/unnamed.webp", defaultPrice: "From $1299", duration: "12 Days" }
     ];
@@ -100,8 +100,8 @@ const HomePage: React.FC = () => {
             desc: "24/7 dedicated help from real people who care."
         },
         {
-            title: "Corporate & Group Specialists",
-            desc: "Tailored itineraries for groups, celebrations, and romantic escapes."
+            title: "One-Stop Travel Solution",
+            desc: "From flights to farewells, every part of your journey handled under one roof."
         }
     ];
 
@@ -181,10 +181,12 @@ const HomePage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="relative py-20 sm:py-24 px-4 bg-black pointer-events-auto overflow-hidden">
+                <section className="relative py-20 sm:py-24 px-4 bg-black/35 backdrop-blur-3xl pointer-events-auto overflow-hidden">
+                    {/* Soft fade from the hero so the earth blends in, not cuts off */}
+                    <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
                     {/* Atmospheric Glows */}
-                    <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
-                    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
+                    <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.06] blur-[100px] rounded-full pointer-events-none" />
+                    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full pointer-events-none" />
 
                     <div className="max-w-7xl mx-auto relative z-10">
                         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
@@ -283,7 +285,7 @@ const HomePage: React.FC = () => {
                 </section>
 
                 {/* Why GlobeHoppersTours? Section - Optimized for Mobile */}
-                <section id="why-us" className="py-16 sm:py-24 bg-black relative overflow-hidden">
+                <section id="why-us" className="py-16 sm:py-24 bg-black/35 backdrop-blur-3xl relative overflow-hidden">
                     <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
                         <div className="text-center space-y-3 mb-12 sm:mb-16">
                             <motion.h2 
@@ -335,11 +337,11 @@ const HomePage: React.FC = () => {
                                     )
                                 },
                                 {
-                                    title: "Corporate & Group Specialists",
-                                    desc: "Tailored itineraries for groups, celebrations, and romantic escapes.",
+                                    title: "One-Stop Travel Solution",
+                                    desc: "From flights to farewells, every part of your journey handled under one roof.",
                                     icon: (
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     )
                                 }

@@ -672,7 +672,7 @@ export const destinationsData: DestinationsData = {
         displayName: 'Vietnam',
         tagline: 'Your Adventure Awaits!',
         description: 'Discover stunning natural beauty, rich history, delicious cuisine, and friendly people from north to south.',
-        heroImage: 'https://images.unsplash.com/photo-1528127220168-9a3114ed41f8?q=80&w=2574&auto=format&fit=crop',
+        heroImage: 'https://ik.imagekit.io/travalot/development/resources/attachments/2026/0/12/e6153f00-efb0-11f0-a82f-c5cb6fcc02f2.jpg?tr=f-webp:q-85',
         highlights: ['Halong Bay', 'Hoi An Ancient Town', 'Mekong Delta', 'Vietnamese Cuisine', 'Motorbike Culture'],
         bestTime: 'February to April, August to October',
         currency: 'Vietnamese Dong (₫)',

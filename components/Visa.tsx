@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Stars from './Stars';
 import Footer from './Footer';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 const Visa: React.FC = () => {
     const visaServices = [
@@ -163,6 +164,7 @@ const Visa: React.FC = () => {
                 </div>
             </div>
 
+            <WhatsAppBookBar />
             <Footer />
         </>
     );

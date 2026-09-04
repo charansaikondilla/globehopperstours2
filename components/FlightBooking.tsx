@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Stars from './Stars';
 import Footer from './Footer';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 const FlightBooking: React.FC = () => {
     const [tripType, setTripType] = useState<'oneWay' | 'roundTrip' | 'multiCity'>('roundTrip');
@@ -153,6 +154,7 @@ const FlightBooking: React.FC = () => {
                 </div>
             </div>
 
+            <WhatsAppBookBar />
             <Footer />
         </>
     );

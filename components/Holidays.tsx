@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Stars from './Stars';
 import Footer from './Footer';
+import WhatsAppBookBar from './WhatsAppBookBar';
 
 interface HolidayPackage {
     name: string;
@@ -220,6 +221,7 @@ const Holidays: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <WhatsAppBookBar />
             <Footer />
         </div>
     );

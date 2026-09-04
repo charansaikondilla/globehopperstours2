@@ -32,10 +32,10 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
     useEffect(() => {
         const svg = d3.select(svgRef.current);
         const tooltip = d3.select('#tooltip');
-        let initialScale: number;
         let path: any;
         let globeGroup: any;
         let pinGroup: any;
+        const sensitivity = 75;
 
         const updateElements = () => {
             if (!path || !projectionRef.current || !globeGroup) return;
@@ -93,11 +93,9 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
             if (!container) return;
             const width = container.clientWidth;
             const height = container.clientHeight;
-            const sensitivity = 75;
 
             if (!projectionRef.current) {
                 const scale = Math.min(width, height) * 0.4;
-                initialScale = scale;
                 projectionRef.current = d3.geoOrthographic()
                     .scale(scale)
                     .center([0, 0])
@@ -239,33 +237,22 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
                 .style('pointer-events', 'none');
 
             // --- INTERACTIONS ---
+            // Desktop: mouse-only click-and-drag to spin the globe manually.
+            // `.touchable(false)` keeps d3 off touch events entirely so the mobile
+            // swipe handler below fully owns touch, and the mouse wheel is never
+            // intercepted here so the page keeps scrolling normally over the globe.
             const drag = d3.drag()
+                .touchable(false)
                 .on('start', () => { stopRotation(); rotationPausedByUserRef.current = true; })
                 .on('drag', (event: any) => {
+                    if (!projectionRef.current) return;
                     const rotate = projectionRef.current.rotate();
                     const k = sensitivity / projectionRef.current.scale();
                     projectionRef.current.rotate([rotate[0] + event.dx * k, rotate[1] - event.dy * k]);
                     updateElements();
                 })
                 .on('end', () => { rotationPausedByUserRef.current = false; startRotationRef.current?.(); });
-
-            const zoom = d3.zoom().scaleExtent([0.8, 8])
-                .filter((event: any) => !event.type.startsWith('mouse') || event.type === 'wheel')
-                .on('start', () => { stopRotation(); rotationPausedByUserRef.current = true; })
-                .on('zoom', (event: any) => {
-                    projectionRef.current.scale(initialScale * event.transform.k);
-
-                    // Update Globe Size (simplification)
-                    const r = projectionRef.current.scale();
-                    svg.selectAll('circle').attr('r', r);
-                    svg.selectAll('circle').filter((d: any, i: number, nodes: any) => {
-                        return nodes[i].style.filter.includes('glow');
-                    }).attr('r', r * 1.03);
-
-                    updateElements();
-                })
-                .on('end', () => { rotationPausedByUserRef.current = false; startRotationRef.current?.(); });
-            svg.call(drag).call(zoom);
+            svg.call(drag);
         };
 
         drawGlobe();
@@ -274,9 +261,92 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
         const handleResize = () => drawGlobe();
         window.addEventListener('resize', handleResize);
 
+        // --- MANUAL TOUCH ROTATION (mobile swipe) ---
+        // A single finger on the globe could mean "rotate the earth" or "scroll the
+        // page" — we can't know until the finger actually moves. We wait for the
+        // gesture to move past a small threshold, lock the direction once (mostly
+        // horizontal => rotate the globe manually; mostly vertical => let the
+        // browser scroll the page natively), then commit to that mode for the rest
+        // of the touch. Auto-rotation pauses only while a real rotate-drag is
+        // happening and resumes automatically afterwards.
+        // Small threshold so a light flick spins the globe, while a clear vertical
+        // drag still scrolls the page.
+        const DIRECTION_LOCK_PX = 6;
+        let touchState: {
+            id: number;
+            startX: number;
+            startY: number;
+            lastX: number;
+            lastY: number;
+            mode: 'pending' | 'rotate' | 'scroll';
+        } | null = null;
+
+        const handleTouchStart = (event: TouchEvent) => {
+            if (event.touches.length !== 1) {
+                // A second finger means pinch-to-zoom takes over; abandon rotate tracking.
+                touchState = null;
+                return;
+            }
+            const t = event.touches[0];
+            touchState = { id: t.identifier, startX: t.clientX, startY: t.clientY, lastX: t.clientX, lastY: t.clientY, mode: 'pending' };
+        };
+
+        const handleTouchMove = (event: TouchEvent) => {
+            if (!touchState || event.touches.length !== 1 || !projectionRef.current) return;
+            let t: Touch | null = null;
+            for (let i = 0; i < event.touches.length; i++) {
+                if (event.touches[i].identifier === touchState.id) { t = event.touches[i]; break; }
+            }
+            if (!t) return;
+
+            if (touchState.mode === 'pending') {
+                const dx = t.clientX - touchState.startX;
+                const dy = t.clientY - touchState.startY;
+                if (Math.abs(dx) < DIRECTION_LOCK_PX && Math.abs(dy) < DIRECTION_LOCK_PX) {
+                    return; // Not enough movement yet to know intent.
+                }
+                touchState.mode = Math.abs(dx) > Math.abs(dy) ? 'rotate' : 'scroll';
+                if (touchState.mode === 'rotate') {
+                    stopRotation();
+                    rotationPausedByUserRef.current = true;
+                }
+            }
+
+            if (touchState.mode === 'scroll') return; // Native page scroll handles this.
+
+            event.preventDefault();
+            const dx = t.clientX - touchState.lastX;
+            const dy = t.clientY - touchState.lastY;
+            touchState.lastX = t.clientX;
+            touchState.lastY = t.clientY;
+
+            const rotate = projectionRef.current.rotate();
+            const k = sensitivity / projectionRef.current.scale();
+            projectionRef.current.rotate([rotate[0] + dx * k, rotate[1] - dy * k]);
+            updateElements();
+        };
+
+        const handleTouchEnd = () => {
+            if (touchState?.mode === 'rotate') {
+                rotationPausedByUserRef.current = false;
+                startRotationRef.current?.();
+            }
+            touchState = null;
+        };
+
+        const svgNode = svgRef.current;
+        svgNode?.addEventListener('touchstart', handleTouchStart, { passive: true });
+        svgNode?.addEventListener('touchmove', handleTouchMove, { passive: false });
+        svgNode?.addEventListener('touchend', handleTouchEnd, { passive: true });
+        svgNode?.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+
         return () => {
             stopRotation();
             window.removeEventListener('resize', handleResize);
+            svgNode?.removeEventListener('touchstart', handleTouchStart);
+            svgNode?.removeEventListener('touchmove', handleTouchMove);
+            svgNode?.removeEventListener('touchend', handleTouchEnd);
+            svgNode?.removeEventListener('touchcancel', handleTouchEnd);
         };
     }, []); // Only run on mount, internal state handles updates
 
@@ -406,7 +476,7 @@ const Earth: React.FC<EarthProps> = ({ searchQuery, targetCoordinates, onCountry
 
 
 
-    return <svg ref={svgRef} className="cursor-move w-full h-full" style={{ display: 'block' }} />;
+    return <svg ref={svgRef} className="cursor-move w-full h-full" style={{ display: 'block', touchAction: 'pan-y' }} />;
 };
 
 export default Earth;
