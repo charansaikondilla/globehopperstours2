@@ -73,20 +73,20 @@ const AboutUs: React.FC = () => {
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                             {teamMembers.map((member, idx) => (
-                                <div key={idx} className="group relative">
-                                    <div className="relative rounded-[1.5rem] sm:rounded-[1.75rem] overflow-hidden bg-black border border-white/10 aspect-[3/4] shadow-2xl group-hover:border-blue-500/40 transition-all duration-500">
+                                <div
+                                    key={idx}
+                                    className="group flex flex-col items-center text-center glass-card rounded-2xl sm:rounded-3xl px-4 py-6 sm:px-6 sm:py-8 border border-white/10 shadow-xl hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-500"
+                                >
+                                    <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-black border-2 border-blue-500/30 shadow-2xl mb-3 sm:mb-4 group-hover:border-blue-500/60 transition-all duration-500">
                                         <img
                                             src={member.photo}
                                             alt={member.name}
                                             loading="lazy"
-                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                                            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/5 to-transparent" />
                                     </div>
-                                    <div className="relative -mt-8 sm:-mt-10 mx-3 sm:mx-4 glass-card rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-xl border border-white/10 group-hover:border-blue-500/30 transition-all duration-500">
-                                        <h3 className="text-white font-black text-xs sm:text-base tracking-tight truncate">{member.name}</h3>
-                                        <p className="text-blue-400 text-[8px] sm:text-[10px] font-black uppercase tracking-widest mt-0.5">{member.role}</p>
-                                    </div>
+                                    <h3 className="text-white font-black text-xs sm:text-base tracking-tight leading-snug">{member.name}</h3>
+                                    <p className="text-blue-400 text-[8px] sm:text-[10px] font-black uppercase tracking-widest mt-1">{member.role}</p>
                                 </div>
                             ))}
                         </div>

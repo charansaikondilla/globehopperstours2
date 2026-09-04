@@ -93,15 +93,15 @@ const Navbar: React.FC = () => {
                 <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
                     <div className="flex items-center justify-between">
                         {/* Brand Logo - Compact & Clean */}
-                        <Link to="/" className="flex items-center gap-2.5 group relative">
+                        <Link to="/" className="flex items-end gap-2 sm:gap-3 group relative min-w-0">
                             <div className="relative w-11 h-11 sm:w-14 sm:h-14 flex items-center justify-center transition-all duration-500 flex-shrink-0">
                                 <img src="https://i.ibb.co/HfRc0wJr/globehoppersimage-removebg-preview.png" alt="GlobeHoppersTours" className="w-full h-full object-contain scale-110" />
                             </div>
-                            <div className="flex flex-col -space-y-0.5">
-                                <h1 className="text-sm sm:text-lg font-black tracking-tighter text-white leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                                    Globe<span className="text-blue-400">HoppersTours</span>
+                            <div className="flex flex-col -space-y-0.5 min-w-0">
+                                <h1 className="text-base sm:text-xl font-black tracking-tight text-white leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] whitespace-nowrap">
+                                    Globe<span className="shimmer-text">HoppersTours</span>
                                 </h1>
-                                <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-[0.15em] sm:tracking-[0.25em] text-white/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">FROM HOP TO HORIZON</span>
+                                <span className="text-[7px] sm:text-[9px] font-black uppercase tracking-[0.18em] sm:tracking-[0.25em] text-white/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] whitespace-nowrap">FROM HOP TO HORIZON</span>
                             </div>
                         </Link>
 
