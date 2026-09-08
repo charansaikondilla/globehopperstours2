@@ -3,15 +3,21 @@ import { Helmet } from 'react-helmet-async';
 import Stars from './Stars';
 import Footer from './Footer';
 
-// Matches the hard-coded GitHub Pages base in vite.config.ts
-const ASSET_BASE = '/globehopperstours2/';
-
 const teamMembers = [
-    { name: 'Vyshalini', role: 'Founder', photo: `${ASSET_BASE}team/vyshalini.jpg` },
-    { name: 'Vaishanavi', role: 'Co-Founder', photo: `${ASSET_BASE}team/vaishanavi.jpg` },
-    { name: 'Pavan Sai Kondilla', role: 'Managing Director', photo: `${ASSET_BASE}team/pavan.jpg` },
-    { name: 'Charan Sai Kondilla', role: 'COO', photo: `${ASSET_BASE}team/charan.jpg` },
+    { name: 'Vyshalini', role: 'Founder' },
+    { name: 'Vaishanavi', role: 'Co-Founder' },
+    { name: 'Pavan Sai Kondilla', role: 'Managing Director' },
+    { name: 'Charan Sai Kondilla', role: 'COO' },
 ];
+
+const getInitials = (name: string) =>
+    name
+        .split(' ')
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join('')
+        .toUpperCase();
 
 const AboutUs: React.FC = () => {
     return (
@@ -77,13 +83,10 @@ const AboutUs: React.FC = () => {
                                     key={idx}
                                     className="group flex flex-col items-center text-center glass-card rounded-2xl sm:rounded-3xl px-4 py-6 sm:px-6 sm:py-8 border border-white/10 shadow-xl hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-500"
                                 >
-                                    <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-black border-2 border-blue-500/30 shadow-2xl mb-3 sm:mb-4 group-hover:border-blue-500/60 transition-all duration-500">
-                                        <img
-                                            src={member.photo}
-                                            alt={member.name}
-                                            loading="lazy"
-                                            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
-                                        />
+                                    <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-600/20 to-indigo-600/10 border-2 border-blue-500/30 shadow-2xl mb-3 sm:mb-4 group-hover:border-blue-500/60 transition-all duration-500">
+                                        <span className="text-lg sm:text-2xl font-black tracking-tight text-blue-300">
+                                            {getInitials(member.name)}
+                                        </span>
                                     </div>
                                     <h3 className="text-white font-black text-xs sm:text-base tracking-tight leading-snug">{member.name}</h3>
                                     <p className="text-blue-400 text-[8px] sm:text-[10px] font-black uppercase tracking-widest mt-1">{member.role}</p>
