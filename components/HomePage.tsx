@@ -124,6 +124,12 @@ const HomePage: React.FC = () => {
             <div className="relative z-10">
                 <section className="relative h-screen flex flex-col items-center justify-center pt-16 sm:pt-20 pointer-events-none">
                     <div className="text-center space-y-3 sm:space-y-4 mb-[25vh] sm:mb-[22vh] z-20 pointer-events-auto px-6">
+                        <div className="flex justify-center">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-white/[0.06] backdrop-blur-md pl-3 pr-2.5 py-1 sm:pl-4 sm:pr-3.5 sm:py-1.5 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-blue-100/80 shadow-[0_0_24px_rgba(59,130,246,0.18)]">
+                                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.9)] animate-pulse" />
+                                Human + AI
+                            </span>
+                        </div>
                         <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight drop-shadow-2xl">
                             Where Will You <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400">Hop Next?</span>
                         </h1>
