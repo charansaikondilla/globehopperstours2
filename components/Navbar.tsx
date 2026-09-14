@@ -84,10 +84,10 @@ const Navbar: React.FC = () => {
             `}</style>
 
             <nav
-                className={`fixed top-0 w-full z-[100] transition-all duration-500 ease-out backdrop-saturate-150 py-2 ${
+                className={`fixed top-0 w-full z-[100] transition-all duration-500 ease-out py-2 ${
                     isScrolled || isMenuOpen
-                        ? 'bg-black/30 backdrop-blur-2xl border-b border-white/10 shadow-2xl'
-                        : 'bg-black/10 backdrop-blur-sm border-b border-transparent shadow-none'
+                        ? 'bg-black/30 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/10 shadow-2xl'
+                        : 'bg-transparent border-b border-transparent shadow-none'
                 }`}
             >
                 <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
